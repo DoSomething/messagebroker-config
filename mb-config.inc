@@ -17,7 +17,7 @@
  *   lrwxr-xr-x   1 darrenlee  staff   82 Mar 10 14:49 ds-config.inc ->
  *     /Users/darrenlee/Sites/message-broker/messagebroker-config/mb-config/ds-config.inc
  */
- 
+
  // Transactionals
 putenv("MB_TRANSACTIONAL_EXCHANGE=transactionalExchange");
 putenv("MB_TRANSACTIONAL_EXCHANGE_TYPE=topic");
@@ -46,4 +46,17 @@ putenv("MB_USER_REGISTRATION_QUEUE_DURABLE=1");
 putenv("MB_USER_REGISTRATION_QUEUE_EXCLUSIVE=0");
 putenv("MB_USER_REGISTRATION_QUEUE_AUTO_DELETE=0");
 
-// User Unsubscribes
+// MailChimp Unsubscribes
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE=directMailchimpWebhooks");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_TYPE=direct");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_PASSIVE=0");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_DURABLE=1");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_AUTO_DELETE=0");
+
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_ROUTING_KEY=mailchimpUnsubscribe");
+
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE=mailchimpUnsubscribeQueue");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_PASSIVE=0");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_DURABLE=1");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_EXCLUSIVE=0");
+putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_AUTO_DELETE=0");
