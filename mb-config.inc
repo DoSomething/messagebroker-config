@@ -19,6 +19,7 @@
  */
 
 /**
+ * RabbitMQ
  * Transactionals
  */
 putenv("MB_TRANSACTIONAL_EXCHANGE=transactionalExchange");
@@ -37,6 +38,7 @@ putenv("MB_TRANSACTIONAL_QUEUE_AUTO_DELETE=0");
 putenv("MB_TRANSACTIONAL_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=*.*.transactional");
 
 /**
+ * RabbitMQ
  * Registrations
  */
 putenv("MB_USER_REGISTRATION_EXCHANGE_ROUTING_KEY=emailRegistration");
@@ -49,6 +51,7 @@ putenv("MB_USER_REGISTRATION_QUEUE_AUTO_DELETE=0");
 putenv("MB_USER_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
 
 /**
+ * RabbitMQ
  * MailChimp Campaign Signups
  */
 putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_ROUTING_KEY=mailchimpCampaignSignup");
@@ -61,6 +64,7 @@ putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_AUTO_DELETE=0");
 putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.signup.*");
 
 /**
+ * RabbitMQ
  * MailChimp Unsubscribes
  */
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE=directMailchimpWebhooks");
@@ -76,3 +80,9 @@ putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_PASSIVE=0");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_DURABLE=1");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_EXCLUSIVE=0");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_AUTO_DELETE=0");
+
+/**
+ * MailChimp
+ */
+// Do Something Members
+putenv("MAILCHIMP_LIST_ID=71893");
