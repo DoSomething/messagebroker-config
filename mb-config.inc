@@ -85,4 +85,4 @@ putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_AUTO_DELETE=0");
  * MailChimp
  */
 // Do Something Members
-putenv("MAILCHIMP_LIST_ID=71893");
+putenv("MAILCHIMP_LIST_ID=f2fab1dfd4");
