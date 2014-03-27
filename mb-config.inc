@@ -19,14 +19,20 @@
  */
 
 /**
- * RabbitMQ
- * Transactionals
+ * RabbitMQ - Exchange
+ * transactionalExchange
  */
+
 putenv("MB_TRANSACTIONAL_EXCHANGE=transactionalExchange");
 putenv("MB_TRANSACTIONAL_EXCHANGE_TYPE=topic");
 putenv("MB_TRANSACTIONAL_EXCHANGE_PASSIVE=0");
 putenv("MB_TRANSACTIONAL_EXCHANGE_DURABLE=1");
 putenv("MB_TRANSACTIONAL_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * Transactionals
+ */
 
 putenv("MB_TRANSACTIONAL_EXCHANGE_ROUTING_KEY=transactional");
 
@@ -38,7 +44,7 @@ putenv("MB_TRANSACTIONAL_QUEUE_AUTO_DELETE=0");
 putenv("MB_TRANSACTIONAL_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=*.*.transactional");
 
 /**
- * RabbitMQ
+ * RabbitMQ - Queue
  * Registrations
  */
 putenv("MB_USER_REGISTRATION_EXCHANGE_ROUTING_KEY=emailRegistration");
@@ -51,7 +57,7 @@ putenv("MB_USER_REGISTRATION_QUEUE_AUTO_DELETE=0");
 putenv("MB_USER_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
 
 /**
- * RabbitMQ
+ * RabbitMQ - Queue
  * MailChimp Campaign Signups
  */
 putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_ROUTING_KEY=mailchimpCampaignSignup");
@@ -64,7 +70,20 @@ putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_AUTO_DELETE=0");
 putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.signup.*");
 
 /**
- * RabbitMQ
+ * RabbitMQ - Queue
+ * User Campaign Activity - signups and reportbacks
+ */
+putenv("MB_USER_CAMPAIGN_ACTIVTY_ROUTING_KEY=userCampaignActivty");
+
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE=userCampaignActivityQueue");
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_PASSIVE=0");
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_DURABLE=1");
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_AUTO_DELETE=0");
+putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.*.*");
+
+/**
+ * RabbitMQ - Exchange
  * MailChimp Unsubscribes
  */
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE=directMailchimpWebhooks");
@@ -73,6 +92,10 @@ putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_PASSIVE=0");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_DURABLE=1");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_AUTO_DELETE=0");
 
+/**
+ * RabbitMQ - Queue
+ * mailchimpUnsubscribeQueue
+ */
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_ROUTING_KEY=mailchimpUnsubscribe");
 
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE=mailchimpUnsubscribeQueue");
