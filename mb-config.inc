@@ -105,6 +105,28 @@ putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_EXCLUSIVE=0");
 putenv("MB_MAILCHIMP_UNSUBSCRIBE_QUEUE_AUTO_DELETE=0");
 
 /**
+ * RabbitMQ - Exchange
+ * MailChimp Error messages reported after batch submit
+ */
+putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE=directUserMailchimpStatus");
+putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_TYPE=direct");
+putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_PASSIVE=0");
+putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_DURABLE=1");
+putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * userMailchimpStatusQueue
+ */
+putenv("MB_USER_MAILCHIMP_STATUS_ROUTING_KEY=userMailchimpStatus");
+
+putenv("MB_USER_MAILCHIMP_STATUS_QUEUE=userMailchimpStatusQueue");
+putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_PASSIVE=0");
+putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_DURABLE=1");
+putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_AUTO_DELETE=0");
+
+/**
  * MailChimp
  */
 // Do Something Members
