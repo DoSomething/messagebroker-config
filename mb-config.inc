@@ -84,7 +84,8 @@ putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=c
 
 /**
  * RabbitMQ - Queue
- * User Campaign Activity - signups and reportbacks to be consumed for updates to the UserAPI
+ * User Account Activity - user account creation details to be consumed for
+ * record creation in the UserAPI.
  */
 putenv("MB_USER_API_REGISTRATION_ROUTING_KEY=userAPIRegistration");
 
@@ -97,7 +98,8 @@ putenv("MB_USER_API_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=u
 
 /**
  * RabbitMQ - Queue
- * User Campaign Activity - signups and reportbacks to be consumed for updates to the UserAPI
+ * User Campaign Activity - campaign signups and reportbacks to be consumed for
+ * updates to the UserAPI
  */
 putenv("MB_USER_API_CAMPAIGN_ACTIVITY_ROUTING_KEY=userAPICampaignActivity");
 
