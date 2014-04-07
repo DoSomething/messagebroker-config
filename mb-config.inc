@@ -157,6 +157,18 @@ putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_AUTO_DELETE=0");
 putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_BINDING_KEY=userMailchimpStatus");
 
 /**
+ * RabbitMQ - Queue
+ * userMailchimpResubscribeQueue
+ */
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_ROUTING_KEY=userMailchimpResubscribe");
+
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE=userMailchimpResubscribeQueue");
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_PASSIVE=0");
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_DURABLE=1");
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
+
+/**
  * Service IDs
  */
 // Mailchimp - Do Something Members
