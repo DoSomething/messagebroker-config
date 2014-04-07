@@ -157,7 +157,8 @@ putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_AUTO_DELETE=0");
 putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_BINDING_KEY=userMailchimpStatus");
 
 /**
- * MailChimp
+ * Service IDs
  */
-// Do Something Members
+// Mailchimp - Do Something Members
 putenv("MAILCHIMP_LIST_ID=f2fab1dfd4");
+putenv("NEWRELIC_APP_NAME_RABBIT1=Message Broker - rabbit1");
