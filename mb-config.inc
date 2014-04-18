@@ -169,6 +169,30 @@ putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_EXCLUSIVE=0");
 putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
 
 /**
+ * RabbitMQ - Exchange
+ * Sources of data to be cached for persistant data storage for the Message
+ * Broker system.
+ */
+putenv("MB_CACHE_EXCHANGE=directCacheExchange");
+putenv("MB_CACHE_EXCHANGE_TYPE=direct");
+putenv("MB_CACHE_EXCHANGE_PASSIVE=0");
+putenv("MB_CACHE_EXCHANGE_DURABLE=1");
+putenv("MB_CACHE_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * campaignCacheQueue
+ */
+putenv("MB_CAMPAIGN_CACHE_ROUTING_KEY=campaignCache");
+
+putenv("MB_CAMPAIGN_CACHE_QUEUE=campaignCacheQueue");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_PASSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_DURABLE=1");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_EXCLUSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_AUTO_DELETE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_BINDING_KEY=campaignCache");
+
+/**
  * Service IDs
  */
 // Mailchimp - Do Something Members
