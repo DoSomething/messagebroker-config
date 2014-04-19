@@ -170,6 +170,55 @@ putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
 
 /**
  * RabbitMQ - Exchange
+ * User events
+ */
+putenv("MB_USER_EVENT_EXCHANGE=directUserEvent");
+putenv("MB_USER_EVENT_EXCHANGE_TYPE=direct");
+putenv("MB_USER_EVENT_EXCHANGE_PASSIVE=0");
+putenv("MB_USER_EVENT_EXCHANGE_DURABLE=1");
+putenv("MB_USER_EVENT_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * userEventBirthdayQueue
+ */
+putenv("MB_USER_EVENT_BIRTHDAY_ROUTING_KEY=userEventBirthday");
+
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE=userEventBirthdayQueue");
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE_PASSIVE=0");
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE_DURABLE=0");
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE_AUTO_DELETE=1");
+putenv("MB_USER_EVENT_BIRTHDAY_QUEUE_BINDING_KEY=userEventBirthday");
+
+/*
+ * RabbitMQ - Queue
+ * userEvent13BirthdayQueue
+ */
+putenv("MB_USER_EVENT_13BIRTHDAY_ROUTING_KEY=userEvent13Birthday");
+
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE=userEvent13BirthdayQueue");
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_PASSIVE=0");
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_DURABLE=1");
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_AUTO_DELETE=1");
+putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_BINDING_KEY=userEvent13Birthday");
+
+/*
+ * RabbitMQ - Queue
+ * userEventAnniversaryQueue
+ */
+putenv("MB_USER_EVENT_ANNIVERSARY_ROUTING_KEY=userEventAnniversary");
+
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE=userEventAnniversaryQueue");
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_PASSIVE=0");
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_DURABLE=0");
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_EXCLUSIVE=0");
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_AUTO_DELETE=1");
+putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_BINDING_KEY=userEventAnniversary");
+
+/**
+ * RabbitMQ - Exchange
  * Sources of data to be cached for persistant data storage for the Message
  * Broker system.
  */
