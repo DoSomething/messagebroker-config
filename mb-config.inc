@@ -94,7 +94,7 @@ putenv("MB_USER_API_REGISTRATION_QUEUE_PASSIVE=0");
 putenv("MB_USER_API_REGISTRATION_QUEUE_DURABLE=1");
 putenv("MB_USER_API_REGISTRATION_QUEUE_EXCLUSIVE=0");
 putenv("MB_USER_API_REGISTRATION_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_API_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
+putenv("MB_USER_API_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.#");
 
 /**
  * RabbitMQ - Queue
@@ -240,6 +240,29 @@ putenv("MB_CAMPAIGN_CACHE_QUEUE_DURABLE=1");
 putenv("MB_CAMPAIGN_CACHE_QUEUE_EXCLUSIVE=0");
 putenv("MB_CAMPAIGN_CACHE_QUEUE_AUTO_DELETE=0");
 putenv("MB_CAMPAIGN_CACHE_QUEUE_BINDING_KEY=campaignCache");
+
+/**
+ * RabbitMQ - Exchange - Heartbeat
+ * Automated test entries for monitoring the health of the system.
+ */
+putenv("MB_HEARTBEAT_EXCHANGE=directHeartbeatExchange");
+putenv("MB_HEARTBEAT_EXCHANGE_TYPE=direct");
+putenv("MB_HEARTBEAT_EXCHANGE_PASSIVE=0");
+putenv("MB_HEARTBEAT_EXCHANGE_DURABLE=1");
+putenv("MB_HEARTBEAT_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue - Heartbeat
+ * heartbeatQueue
+ */
+putenv("MB_HEARTBEAT_ROUTING_KEY=heartbeat");
+
+putenv("MB_HEARTBEAT_QUEUE=heartbeatQueue");
+putenv("MB_HEARTBEAT_QUEUE_PASSIVE=0");
+putenv("MB_HEARTBEAT_QUEUE_DURABLE=0");
+putenv("MB_HEARTBEAT_QUEUE_EXCLUSIVE=0");
+putenv("MB_HEARTBEAT_QUEUE_AUTO_DELETE=1");
+putenv("MB_HEARTBEAT_QUEUE_BINDING_KEY=heartbeat");
 
 /**
  * Service IDs
