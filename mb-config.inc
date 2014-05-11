@@ -219,6 +219,29 @@ putenv("MB_USER_EVENT_ANNIVERSARY_QUEUE_BINDING_KEY=userEventAnniversary");
 
 /**
  * RabbitMQ - Exchange
+ * Requests for user digest messages.
+ */
+putenv("MB_CACHE_EXCHANGE=directUserDigestExchange");
+putenv("MB_CACHE_EXCHANGE_TYPE=direct");
+putenv("MB_CACHE_EXCHANGE_PASSIVE=0");
+putenv("MB_CACHE_EXCHANGE_DURABLE=1");
+putenv("MB_CACHE_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * userDigestQueue
+ */
+putenv("MB_CAMPAIGN_CACHE_ROUTING_KEY=userDigest");
+
+putenv("MB_CAMPAIGN_CACHE_QUEUE=userDigestQueue");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_PASSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_DURABLE=1");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_EXCLUSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_AUTO_DELETE=0");
+putenv("MB_CAMPAIGN_CACHE_QUEUE_BINDING_KEY=userDigest");
+
+/**
+ * RabbitMQ - Exchange
  * Sources of data to be cached for persistant data storage for the Message
  * Broker system.
  */
