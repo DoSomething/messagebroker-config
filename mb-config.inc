@@ -264,6 +264,12 @@ putenv("MB_CAMPAIGN_CACHE_QUEUE_EXCLUSIVE=0");
 putenv("MB_CAMPAIGN_CACHE_QUEUE_AUTO_DELETE=0");
 putenv("MB_CAMPAIGN_CACHE_QUEUE_BINDING_KEY=campaignCache");
 
+putenv("MB_CAMPAIGN_CACHE_CONSUME_TAG=campaignCache");
+putenv("MB_CAMPAIGN_CACHE_CONSUME_NO_LOCAL=0");
+putenv("MB_CAMPAIGN_CACHE_CONSUME_NO_ACK=0");
+putenv("MB_CAMPAIGN_CACHE_CONSUME_EXCLUSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_CONSUME_NOWAIT=0");
+
 /**
  * RabbitMQ - Exchange - Heartbeat
  * Automated test entries for monitoring the health of the system.
