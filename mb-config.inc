@@ -245,11 +245,11 @@ putenv("MB_USER_DIGEST_QUEUE_BINDING_KEY=userDigest");
  * Sources of data to be cached for persistant data storage for the Message
  * Broker system.
  */
-putenv("MB_CACHE_EXCHANGE=directCacheExchange");
-putenv("MB_CACHE_EXCHANGE_TYPE=direct");
-putenv("MB_CACHE_EXCHANGE_PASSIVE=0");
-putenv("MB_CACHE_EXCHANGE_DURABLE=1");
-putenv("MB_CACHE_EXCHANGE_AUTO_DELETE=0");
+putenv("MB_CAMPAIGN_CACHE_EXCHANGE=directCacheExchange");
+putenv("MB_CAMPAIGN_CACHE_EXCHANGE_TYPE=direct");
+putenv("MB_CAMPAIGN_CACHE_EXCHANGE_PASSIVE=0");
+putenv("MB_CAMPAIGN_CACHE_EXCHANGE_DURABLE=1");
+putenv("MB_CAMPAIGN_CACHE_EXCHANGE_AUTO_DELETE=0");
 
 /**
  * RabbitMQ - Queue
