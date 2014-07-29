@@ -288,6 +288,29 @@ putenv("MB_USER_DIGEST_QUEUE_BINDING_KEY=userDigest");
 
 /**
  * RabbitMQ - Exchange
+ * User Import from CSV
+ */
+putenv("MB_MAILCHIMP_USER_IMPORT_EXCHANGE=directUserImport");
+putenv("MB_MAILCHIMP_USER_IMPORT_EXCHANGE_TYPE=direct");
+putenv("MB_MAILCHIMP_USER_IMPORT_EXCHANGE_PASSIVE=0");
+putenv("MB_MAILCHIMP_USER_IMPORT_EXCHANGE_DURABLE=1");
+putenv("MB_MAILCHIMP_USER_IMPORT_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * userImportQueue
+ */
+putenv("MB_MAILCHIMP_USER_IMPORT_ROUTING_KEY=userImport");
+
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE=userImportQueue");
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE_PASSIVE=0");
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE_DURABLE=1");
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE_EXCLUSIVE=0");
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE_AUTO_DELETE=0");
+putenv("MB_MAILCHIMP_USER_IMPORT_QUEUE_BINDING_KEY=mailchimpUnsubscribe");
+
+/**
+ * RabbitMQ - Exchange
  * Sources of data to be cached for persistant data storage for the Message
  * Broker system.
  */
