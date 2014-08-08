@@ -104,6 +104,19 @@ putenv("MB_USER_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.
 
 /**
  * RabbitMQ - Queue
+ * Mobile Commons
+ */
+putenv("MB_MOBILE_COMMONS_EXCHANGE_ROUTING_KEY=mobileCommonsRegistration");
+
+putenv("MB_MOBILE_COMMONS_QUEUE=mobileCommonsQueue");
+putenv("MB_MOBILE_COMMONS_QUEUE_PASSIVE=0");
+putenv("MB_MOBILE_COMMONS_QUEUE_DURABLE=1");
+putenv("MB_MOBILE_COMMONS_QUEUE_EXCLUSIVE=0");
+putenv("MB_MOBILE_COMMONS_QUEUE_AUTO_DELETE=0");
+putenv("MB_MOBILE_COMMONS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
+
+/**
+ * RabbitMQ - Queue
  * MailChimp Campaign Signups
  */
 putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_ROUTING_KEY=mailchimpCampaignSignup");
@@ -300,14 +313,14 @@ putenv("MB_USER_IMPORT_EXCHANGE_AUTO_DELETE=0");
  * RabbitMQ - Queue
  * userImportQueue
  */
-putenv("MB_MAILCHIMP_USER_IMPORT_ROUTING_KEY=userImport");
+putenv("MB_USER_IMPORT_ROUTING_KEY=userImport");
 
 putenv("MB_USER_IMPORT_QUEUE=userImportQueue");
 putenv("MB_USER_IMPORT_QUEUE_PASSIVE=0");
-putenv("MB_USER_IMPORT_QUEUE_DURABLE=1");
+putenv("MB_USER_IMPORT_QUEUE_DURABLE=0");
 putenv("MB_USER_IMPORT_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_IMPORT_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_IMPORT_QUEUE_BINDING_KEY=mailchimpUnsubscribe");
+putenv("MB_USER_IMPORT_QUEUE_AUTO_DELETE=1");
+putenv("MB_USER_IMPORT_QUEUE_BINDING_KEY=userImport");
 
 /**
  * RabbitMQ - Exchange
