@@ -1,0 +1,50 @@
+{"rabbit":[
+  {"exchanges":[
+    {
+      "name" : "transactionalExchange",
+      "type" : "topic",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "name" : "transactionalQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "transactional",
+          "binding_pattern" : "*.*.transactional",
+          "consume" : [
+            {
+              "tag" : "transactional",
+              "no_local" : "0",
+              "no_ack" : "0",
+              "nowait" : "0"
+            }
+          ]
+        },
+        {
+          "name" : "activityStatsQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "1",
+          "auto_delete" : "0",
+          "routing_key" : "activityStats",
+          "binding_pattern" : "*.*.transactional",
+          "consume" : [
+            {
+              "tag" : "activityStats",
+              "no_local" : "0",
+              "no_ack" : "0",
+              "exclusive" : "0",
+              "nowait" : "1"
+            }
+          ]
+        }
+      ]
+    }
+  ]}
+]}
+
+
