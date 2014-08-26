@@ -1,5 +1,7 @@
 {"rabbit":[
-  {"exchanges":[
+  {
+    "__comment" : "General RabbitMQ configuration. Define the exchanges and related queues. Note that it possible for more than one change to send messages to a queue through the 'exclusive' setting. The hierarchy in the scructure of this file is an effort to make the process easier rather a set of strict rules.",
+    "exchanges":[
     {
       "name" : "transactionalExchange",
       "type" : "topic",
@@ -41,6 +43,96 @@
               "nowait" : "1"
             }
           ]
+        },
+        {
+          "name" : "loggingQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "1",
+          "auto_delete" : "0",
+          "routing_key" : "logging",
+          "binding_pattern" : "*.*.transactional",
+          "consume" : [
+            {
+              "tag" : "logging",
+              "no_local" : "0",
+              "no_ack" : "1",
+              "exclusive" : "0",
+              "nowait" : "1"
+            }
+          ]
+        },
+        {
+          "name" : "userRegistrationQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "logging",
+          "binding_pattern" : "user.registration.*"
+        },
+        {
+          "name" : "mobileCommonsQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "logging",
+          "binding_pattern" : "user.registration.*",
+          "consume" : [
+            {
+              "tag" : "mobile",
+              "no_local" : "0",
+              "no_ack" : "0",
+              "exclusive" : "0",
+              "nowait" : "0"
+            }
+          ]
+        },
+        {
+          "name" : "mailchimpCampaignSignupQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "mailchimpCampaignSignup",
+          "binding_pattern" : "campaign.signup.*"
+        },
+        {
+          "name" : "userCampaignActivityQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "userCampaignActivty",
+          "binding_pattern" : "campaign.*.*"
+        },
+        {
+          "name" : "userAPIRegistrationQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "userAPIRegistration",
+          "binding_pattern" : "user.registration.#"
+        },
+        {
+          "name" : "userAPICampaignActivityQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "userAPICampaignActivity",
+          "binding_pattern" : "campaign.*.*"
+        },
+        {
+          "name" : "userMailchimpStatusQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "routing_key" : "userMailchimpStatus",
+          "binding_pattern" : "*.mailchimp.error"
         }
       ]
     }
