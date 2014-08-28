@@ -242,6 +242,34 @@
       ]
     },
     {
+      "__comment" : "Exchange - Log all user import results checkoing with each service (Mailchimp, Mobile Commons and Drupal) for existing sites.",
+      "name" : "directUserImportExistingLogging",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - User information imported from sources outside of DoSomething.org.",
+          "name" : "userImportQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "1",
+          "binding_key" : "userImportExistingLogging",
+          "consume" : [
+            {
+              "tag" : "userImportExistingLogging",
+              "no_local" : "0",
+              "no_ack" : "0",
+              "exclusive" : "0",
+              "nowait" : "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "__comment" : "Exchange - Summary email messages for allof a users campaign activity.",
       "name" : "directHeartbeatExchange",
       "type" : "direct",
