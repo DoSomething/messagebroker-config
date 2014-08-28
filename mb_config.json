@@ -3,7 +3,7 @@
     "__comment" : "General RabbitMQ configuration. Define the exchanges and related queues. Note that it possible for more than one change to send messages to a queue through the 'exclusive' setting. The hierarchy in the structure of this file is an effort to make the process easier rather a set of strict rules.",
     "exchanges":[
     {
-      "__comment" : "All transactional email events from the Drupal application go to this exchange.",
+      "__comment" : "Exchange - All transactional email events from the Drupal application go to this exchange.",
       "name" : "transactionalExchange",
       "type" : "topic",
       "passive" : "0",
@@ -11,7 +11,7 @@
       "auto_delete" : "0",
       "queues" : [
         {
-          "__comment" : "Email events, queue items are used to generate single transaction request to Mandrill.",
+          "__comment" : "Queue - Email events, queue items are used to generate single transaction request to Mandrill.",
           "name" : "transactionalQueue",
           "passive" : "0",
           "durable" : "1",
@@ -29,7 +29,7 @@
           ]
         },
         {
-          "__comment" : "The real time dashboard application consumes this queue to generate visual stats of the membership activity.",
+          "__comment" : "Queue - The real time dashboard application consumes this queue to generate visual stats of the membership activity.",
           "name" : "activityStatsQueue",
           "passive" : "0",
           "durable" : "0",
@@ -48,7 +48,7 @@
           ]
         },
         {
-          "__comment" : "Mongo based logging of all transactions.",
+          "__comment" : "Queue - Mongo based logging of all transactions.",
           "name" : "loggingQueue",
           "passive" : "0",
           "durable" : "0",
@@ -67,7 +67,7 @@
           ]
         },
         {
-          "__comments" : "Submit user registration details to Mailchimp.",
+          "__comments" : "Queue - Submit user registration details to Mailchimp.",
           "name" : "userRegistrationQueue",
           "passive" : "0",
           "durable" : "1",
@@ -77,7 +77,7 @@
           "binding_pattern" : "user.registration.*"
         },
         {
-          "__comment" : "All transactions with mobile information is submitted to Mobile Commons.",
+          "__comment" : "Queue - All transactions with mobile information is submitted to Mobile Commons.",
           "name" : "mobileCommonsQueue",
           "passive" : "0",
           "durable" : "1",
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "__comment" : "All member campaign activity is added to the user account on Mailchimp.",
+          "__comment" : "Queue - All member campaign activity is added to the user account on Mailchimp.",
           "name" : "mailchimpCampaignSignupQueue",
           "passive" : "0",
           "durable" : "1",
@@ -106,7 +106,7 @@
           "binding_pattern" : "campaign.signup.*"
         },
         {
-          "__comment" : "Adds campaign activity (campaign signup and report backs) to mb-users database.",
+          "__comment" : "Queue - Adds campaign activity (campaign signup and report backs) to mb-users database.",
           "name" : "userCampaignActivityQueue",
           "passive" : "0",
           "durable" : "1",
@@ -116,7 +116,7 @@
           "binding_pattern" : "campaign.*.*"
         },
         {
-          "__comment" : "New user registrations information is added to the mb-user database.",
+          "__comment" : "Queue - New user registrations information is added to the mb-user database.",
           "name" : "userAPIRegistrationQueue",
           "passive" : "0",
           "durable" : "1",
@@ -126,7 +126,7 @@
           "binding_pattern" : "user.registration.#"
         },
         {
-          "__comment" : "All user campaign activity (signups and report backs) is added to the mb-user database.",
+          "__comment" : "Queue - All user campaign activity (signups and report backs) is added to the mb-user database.",
           "name" : "userAPICampaignActivityQueue",
           "passive" : "0",
           "durable" : "1",
@@ -136,7 +136,7 @@
           "binding_pattern" : "campaign.*.*"
         },
         {
-          "__comment" : "When email accounts are added or updated on Mailchimp a status is returned including any errors or issues that will prevent sending further messages to the email address. This queue logs these issues and updates the mb-user database.",
+          "__comment" : "Queue - When email accounts are added or updated on Mailchimp a status is returned including any errors or issues that will prevent sending further messages to the email address. This queue logs these issues and updates the mb-user database.",
           "name" : "userMailchimpStatusQueue",
           "passive" : "0",
           "durable" : "1",
@@ -145,6 +145,119 @@
           "routing_key" : "userMailchimpStatus",
           "binding_pattern" : "*.mailchimp.error"
         }
+      ]
+    },
+    {
+      "__comment" : "Exchange - Entries made by webhook activity sent by Mailchimp. Used to track user unsubscribes via Mailchimp unsubscribe links in Mailchimp generated mass mailouts.",
+      "name" : "directMailchimpWebhooks",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - Email events, queue items are used to generate single transaction request to Mandrill.",
+          "name" : "mailchimpUnsubscribeQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "binding_key" : "mailchimpUnsubscribe"
+        }
+      ]
+    },
+    {
+      "__comment" : "Exchange - User account events by time - birthday, 13th birthday, anniversary, etc.",
+      "name" : "directUserEvent",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - Users who have a birthday today.",
+          "name" : "userEventBirthdayQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "1",
+          "binding_key" : "userEventBirthday"
+        },
+        {
+          "__comment" : "Queue - Users who turn 13 years of age and thus start to get general DoSomething.org broadcasts..",
+          "name" : "userEvent13BirthdayQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "1",
+          "binding_key" : "userEvent13Birthday"
+        },
+        {
+          "__comment" : "Queue - User who have signed up to DoSomehting.org one year ago.",
+          "name" : "userEventAnniversaryQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "1",
+          "binding_key" : "userEventAnniversary"
+        }
+      ]
+    },
+    {
+      "__comment" : "Exchange - Summary email messages for allof a users campaign activity.",
+      "name" : "directUserDigestExchange",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - Users that have campaign activity that could get sent a digest message.",
+          "name" : "userDigestQueue",
+          "passive" : "0",
+          "durable" : "1",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "binding_key" : "userDigest"
+        }
+      ]
+    },
+    {
+      "__comment" : "Exchange - Summary email messages for allof a users campaign activity.",
+      "name" : "directUserImport",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - User information imported from sources outside of DoSomething.org.",
+          "name" : "userImportQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "0",
+          "binding_key" : "userImport"
+        }
+      ]
+    },
+    {
+      "__comment" : "Exchange - Summary email messages for allof a users campaign activity.",
+      "name" : "directHeartbeatExchange",
+      "type" : "direct",
+      "passive" : "0",
+      "durable" : "1",
+      "auto_delete" : "0",
+      "queues" : [
+        {
+          "__comment" : "Queue - Heartbeat activities to monitor as it flows through the system.",
+          "name" : "heartbeatQueue",
+          "passive" : "0",
+          "durable" : "0",
+          "exclusive" : "0",
+          "auto_delete" : "1",
+          "binding_key" : "heartbeat"
+        },
       ]
     }
   ]}
