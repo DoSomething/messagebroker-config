@@ -163,20 +163,6 @@ putenv("MB_USER_API_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=u
 
 /**
  * RabbitMQ - Queue
- * User Campaign Activity - campaign signups and reportbacks to be consumed for
- * updates to the UserAPI
- */
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_ROUTING_KEY=userAPICampaignActivity");
-
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE=userAPICampaignActivityQueue");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_PASSIVE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_DURABLE=1");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.*.*");
-
-/**
- * RabbitMQ - Queue
  * userMailchimpStatusQueue
  */
 putenv("MB_USER_MAILCHIMP_STATUS_ROUTING_KEY=user.mailchimp.error");
@@ -362,6 +348,8 @@ putenv("MB_USER_IMPORT_LOGGING_CONSUME_NO_LOCAL=0");
 putenv("MB_USER_IMPORT_LOGGING_CONSUME_NO_ACK=0");
 putenv("MB_USER_IMPORT_LOGGING_CONSUME_EXCLUSIVE=0");
 putenv("MB_USER_IMPORT_LOGGING_CONSUME_NOWAIT=0");
+
+putenv("MB_IMPORT_REPORT_ROUTING_KEY=import.report.transactional");
 
 /**
  * RabbitMQ - Exchange - Heartbeat
