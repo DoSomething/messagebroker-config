@@ -1,0 +1,39 @@
+{
+  "rabbit" :
+    {
+      "__comment" : "Connection details for RabbitMQ system. Use the local version for development and the sandbox on the remote server for testing.",
+      "origin": [
+        {
+          "local" :
+            {
+              "host" : "localhost",
+              "port" : "5672",
+              "username" : "guest",
+              "password" : "guest"
+            },
+          "sandbox" :
+            {
+              "host" : "10.241.0.14",
+              "port" : "5672",
+              "username" : "sandbox",
+              "password" : "s@ndb0x",
+              "vhost" : "sandbox"
+            },
+          "production" :
+            {
+              "host" : "10.241.0.14",
+              "port" : "5672",
+              "username" : "dosomething",
+              "password" : "Kickba11",
+              "vhost" : "dosomething"
+            }
+        }
+      ]
+    },
+  "stathat" :
+    {
+      "__comment" : "",
+      "ezkey" : "mholford@dosomething.org",
+      "use_stat_tracking" : "1"
+    }
+}
