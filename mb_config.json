@@ -51,6 +51,25 @@
                         "nowait" : "1"
                       }
                   },
+                "activityStatsQueue" :
+                  {
+                    "__comment" : "Queue - transactional activity to be consumed by the lobby dashboard app.",
+                    "name" : "activityStatsQueue",
+                    "passive" : "0",
+                    "durable" : "0",
+                    "exclusive" : "1",
+                    "auto_delete" : "0",
+                    "routing_key" : "activityStats",
+                    "binding_pattern" : "*.*.transactional",
+                    "consume" :
+                      {
+                        "tag" : "activityStats",
+                        "no_local" : "0",
+                        "no_ack" : "1",
+                        "exclusive" : "0",
+                        "nowait" : "1"
+                      }
+                  },
                 "userRegistrationQueue" :
                   {
                     "__comments" : "Queue - Submit user registration details to Mailchimp.",
@@ -59,7 +78,7 @@
                     "durable" : "1",
                     "exclusive" : "0",
                     "auto_delete" : "0",
-                    "routing_key" : "logging",
+                    "routing_key" : "serRegistration",
                     "binding_pattern" : "user.registration.*"
                   },
                 "mobileCommonsQueue" :
@@ -70,7 +89,7 @@
                     "durable" : "1",
                     "exclusive" : "0",
                     "auto_delete" : "0",
-                    "routing_key" : "logging",
+                    "routing_key" : "mobileCommonsRegistration",
                     "binding_pattern" : "user.registration.*",
                     "consume" :
                       {
@@ -151,7 +170,7 @@
               {
                 "mailchimpUnsubscribeQueue" :
                   {
-                    "__comment" : "Queue - Email events, queue items are used to generate single transaction request to Mandrill.",
+                    "__comment" : "Queue - Webhook unsubscribe events from Mailchimp.",
                     "name" : "mailchimpUnsubscribeQueue",
                     "passive" : "0",
                     "durable" : "1",
@@ -180,6 +199,7 @@
                     "durable" : "0",
                     "exclusive" : "0",
                     "auto_delete" : "1",
+                    "routing_key" : "userEventBirthday",
                     "binding_key" : "userEventBirthday"
                   },
                 "userEvent13BirthdayQueue" :
@@ -190,6 +210,7 @@
                     "durable" : "0",
                     "exclusive" : "0",
                     "auto_delete" : "1",
+                    "routing_key" : "userEvent13Birthday",
                     "binding_key" : "userEvent13Birthday"
                   },
                 "userEventAnniversaryQueue" :
@@ -200,6 +221,7 @@
                     "durable" : "0",
                     "exclusive" : "0",
                     "auto_delete" : "1",
+                    "routing_key" : "userEventAnniversary",
                     "binding_key" : "userEventAnniversary"
                   }
               }
@@ -223,7 +245,33 @@
                     "durable" : "1",
                     "exclusive" : "0",
                     "auto_delete" : "0",
+                    "routing_key" : "userDigest",
                     "binding_key" : "userDigest"
+                  }
+              }
+            ]
+          },
+          
+        "directUserMailchimpStatus" :
+          {
+            "__comment" : "Exchange - Error message reported by Mailchimp after batch submit. The status / subscription of the user will be updated for reference on future messaging.",
+            "name" : "directUserMailchimpStatus",
+            "type" : "direct",
+            "passive" : "0",
+            "durable" : "1",
+            "auto_delete" : "0",
+            "queues" : [
+              {
+                "userMailchimpResubscribeQueue" :
+                  {
+                    "__comment" : "Queue - Users that have campaign activity that could get sent a digest message.",
+                    "name" : "userMailchimpResubscribeQueue",
+                    "passive" : "0",
+                    "durable" : "1",
+                    "exclusive" : "0",
+                    "auto_delete" : "0",
+                    "routing_key" : "userMailchimpResubscribe",
+                    "binding_key" : "userMailchimpResubscribe"
                   }
               }
             ]
@@ -246,7 +294,15 @@
                     "durable" : "0",
                     "exclusive" : "0",
                     "auto_delete" : "0",
-                    "binding_key" : "userImport"
+                    "binding_key" : "userImport",
+                    "consume" :
+                      {
+                        "tag" : "userImport",
+                        "no_local" : "0",
+                        "no_ack" : "0",
+                        "exclusive" : "0",
+                        "nowait" : "0"
+                      }
                   }
               }
             ]
@@ -261,14 +317,14 @@
             "auto_delete" : "0",
             "queues" : [
               {
-                "userImportQueue" :
+                "userImportExistingLoggingQueue" :
                 {
                   "__comment" : "Queue - User information imported from sources outside of DoSomething.org.",
-                  "name" : "userImportQueue",
+                  "name" : "userImportExistingLoggingQueue",
                   "passive" : "0",
                   "durable" : "0",
                   "exclusive" : "0",
-                  "auto_delete" : "1",
+                  "auto_delete" : "0",
                   "binding_key" : "userImportExistingLogging",
                   "consume" : [
                     {
