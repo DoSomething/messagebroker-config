@@ -56,8 +56,8 @@
                     "__comment" : "Queue - transactional activity to be consumed by the lobby dashboard app.",
                     "name" : "activityStatsQueue",
                     "passive" : false,
-                    "durable" : false,
-                    "exclusive" : true,
+                    "durable" : true,
+                    "exclusive" : false,
                     "auto_delete" : false,
                     "routing_key" : "activityStats",
                     "binding_pattern" : "*.*.transactional",
@@ -288,7 +288,7 @@
                     "passive" : false,
                     "durable" : false,
                     "exclusive" : false,
-                    "auto_delete" : false,
+                    "auto_delete" : true,
                     "binding_key" : "userImport",
                     "consume" :
                       {
