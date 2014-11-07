@@ -144,6 +144,17 @@
                     "routing_key" : "userAPICampaignActivity",
                     "binding_pattern" : "campaign.*.*"
                   },
+                "userAPIProfileQueue" :
+                  {
+                    "__comment" : "Queue - Add/update/delete user profile settings in the userAPI.",
+                    "name" : "userAPIProfileQueue",
+                    "passive" : false,
+                    "durable" : true,
+                    "exclusive" : false,
+                    "auto_delete" : false,
+                    "routing_key" : "userAPIProfile",
+                    "binding_pattern" : "user.profile.*"
+                  },
                 "userMailchimpStatusQueue" :
                   {
                     "__comment" : "Queue - When email accounts are added or updated on Mailchimp a status is returned including any errors or issues that will prevent sending further messages to the email address. This queue logs these issues and updates the mb-user database.",
