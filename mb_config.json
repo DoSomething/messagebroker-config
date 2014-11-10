@@ -165,6 +165,17 @@
                     "auto_delete" : false,
                     "routing_key" : "userMailchimpStatus",
                     "binding_pattern" : "*.mailchimp.error"
+                  },
+                "userProfileMailchimpQueue" :
+                  {
+                    "__comment" : "Queue - Update user Mailchimp subscription settings.",
+                    "name" : "userProfileMailchimpQueue",
+                    "passive" : false,
+                    "durable" : true,
+                    "exclusive" : false,
+                    "auto_delete" : false,
+                    "routing_key" : "userProfileMailchimp",
+                    "binding_pattern" : "user.profile.*"
                   }
               }    
           },
