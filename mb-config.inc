@@ -136,19 +136,6 @@ putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTE
 
 /**
  * RabbitMQ - Queue
- * User Campaign Activity - signups and reportbacks
- */
-putenv("MB_USER_CAMPAIGN_ACTIVTY_ROUTING_KEY=userCampaignActivty");
-
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE=userCampaignActivityQueue");
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_PASSIVE=0");
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_DURABLE=1");
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_CAMPAIGN_ACTIVTY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.*.*");
-
-/**
- * RabbitMQ - Queue
  * User Account Activity - user account creation details to be consumed for
  * record creation in the UserAPI.
  */

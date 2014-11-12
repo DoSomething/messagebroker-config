@@ -111,17 +111,6 @@
                     "routing_key" : "mailchimpCampaignSignup",
                     "binding_pattern" : "campaign.signup.*"
                   },
-                "userCampaignActivityQueue" :
-                  {
-                    "__comment" : "Queue - Adds campaign activity (campaign signup and report backs) to mb-users database.",
-                    "name" : "userCampaignActivityQueue",
-                    "passive" : false,
-                    "durable" : true,
-                    "exclusive" : false,
-                    "auto_delete" : false,
-                    "routing_key" : "userCampaignActivty",
-                    "binding_pattern" : "campaign.*.*"
-                  },
                 "userAPIRegistrationQueue" :
                   {
                     "__comment" : "Queue - New user registrations information is added to the mb-user database.",
