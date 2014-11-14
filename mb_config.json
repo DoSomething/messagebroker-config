@@ -382,6 +382,16 @@
                   "durable" : true,
                   "exclusive" : false,
                   "auto_delete" : false,
+                  "binding_key" : "*.event.*"
+                },
+                "externalApplicationUserQueue" :
+                {
+                  "__comment" : "Queue - External Applications - User transactional. Examples user registration.",
+                  "name" : "externalApplicationUserQueue",
+                  "passive" : false,
+                  "durable" : true,
+                  "exclusive" : false,
+                  "auto_delete" : false,
                   "binding_key" : "*.user.*"
                 }
               }
