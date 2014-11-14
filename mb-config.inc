@@ -375,10 +375,11 @@ putenv("MB_HEARTBEAT_QUEUE_AUTO_DELETE=1");
 putenv("MB_HEARTBEAT_QUEUE_BINDING_KEY=heartbeat");
 
 /**
- * RabbitMQ - Exchange - Heartbeat
- * Automated test entries for monitoring the health of the system.
+ * RabbitMQ - Exchange - directExternalApplicationsExchange
+ * External application messages to trigger functionality within the Message
+ * Broker system.
  */
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE=directHeartbeatExchange");
+putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE=directExternalApplicationsExchange");
 putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_TYPE=topic");
 putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_PASSIVE=0");
 putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_DURABLE=1");
