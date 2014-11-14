@@ -389,11 +389,11 @@ putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_AUTO_DELETE=0");
  * RabbitMQ - Queue - External Applications - Transactional event. Example, user
  * vote cast.
  *
- * externalApplicationVoteQueue
+ * externalApplicationEventQueue
  */
 putenv("MB_EXTERNAL_APPLICATIONS_CGG_VOTE_ROUTING_KEY=cgg.event.vote");
 
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE=externalApplicationVoteQueue");
+putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE=externalApplicationEventQueue");
 putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_PASSIVE=0");
 putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_DURABLE=0");
 putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_EXCLUSIVE=0");
