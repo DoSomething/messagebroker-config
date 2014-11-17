@@ -11,14 +11,14 @@ class MB_Configuration
   /**
    * Report consumer activity to StatHat service.
    *
-   * @var array
+   * @var object
    */
   private $statHat;
   
   /**
    * All Message Broker configuration settings - the source of truth.
    *
-   * @var array
+   * @var object
    */
   private $configSettings;
 
@@ -39,21 +39,26 @@ class MB_Configuration
     $this->statHat->setIsProduction(FALSE);
   }
   
-  /*
+  /**
    * Gather all setting for a specific exchange
    */
   public function exchangeSettings($targetExchange) {
     
-    foreach($this->configSettings->rabbit->exchanges as $exchange => $exchangeSettings) {
-      if ($exchange == $targetExchange) {
-        $settings = $exchangeSettings;
+    if (isset($this->configSettings->rabbit->exchanges)) {
+      foreach($this->configSettings->rabbit->exchanges as $exchange => $exchangeSettings) {
+        if ($exchange == $targetExchange) {
+          $settings = $exchangeSettings;
+        }
       }
     }
-    
+    else {
+      echo 'Error - No exchange settings found.', PHP_EOL;
+    }
+
     return $settings;
   }
   
-  /*
+  /**
    * Gather all Message Broker configuration settings from the defined source.
    *
    * @param string $source
@@ -61,15 +66,15 @@ class MB_Configuration
    */
   private function _gatherSettings($source) {
     
-    if (strpos('http://', $source) == TRUE) {
-      echo 'cURL sources are not currently supported.', "\n";
+    if (strpos('http://', $source) !== FALSE) {
+      echo 'cURL sources are not currently supported.', PHP_EOL;
     }
     elseif (file_exists($source)) {
         $settings = json_decode(implode(file($source)));
         return $settings;
     }
     else {
-      echo 'Source: ' . $source . ' not fount.', "\n";
+      echo 'Source: ' . $source . ' not found.', PHP_EOL;
     }
 
   }
