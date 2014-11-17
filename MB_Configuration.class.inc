@@ -1,5 +1,7 @@
 <?php
 
+use DoSomething\MBStatTracker\StatHat;
+
 /**
  * MB_Configuration class - functionality related to the Message Broker
  * configuration.
@@ -58,8 +60,6 @@ class MB_Configuration
    *   Source can be the path to a file or a URL to an endpoint.
    */
   private function _gatherSettings($source) {
-    
-    $bla = file_exists($source);
     
     if (strpos('http://', $source) == TRUE) {
       echo 'cURL sources are not currently supported.', "\n";
