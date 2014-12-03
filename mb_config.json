@@ -299,7 +299,7 @@
                   "durable" : true,
                   "exclusive" : false,
                   "auto_delete" : false,
-                  "binding_key" : "subscribe.mailchimp.*"
+                  "binding_pattern" : "subscribe.mailchimp.*"
                 },
                 "mailchimpResubscriptionQueue" :
                 {
@@ -309,7 +309,7 @@
                   "durable" : true,
                   "exclusive" : false,
                   "auto_delete" : false,
-                  "binding_key" : "resubscribe.mailchimp.*"
+                  "binding_pattern" : "resubscribe.mailchimp.*"
                 }
               }
           },
