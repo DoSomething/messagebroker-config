@@ -441,6 +441,41 @@ putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
 putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_BINDING_KEY=*.mailchimp.resubscribe");
 
 
+
+/**
+ * RabbitMQ - Exchange
+ * topicEmailService - All transactions related to email. Consumers will process
+ * entries based on the email service requirments in use.
+ */
+
+putenv("MB_EMAIL_SERVICE_EXCHANGE=topicEmailService");
+putenv("MB_EMAIL_SERVICE_EXCHANGE_TYPE=topic");
+putenv("MB_EMAIL_SERVICE_EXCHANGE_PASSIVE=0");
+putenv("MB_EMAIL_SERVICE_EXCHANGE_DURABLE=1");
+putenv("MB_EMAIL_SERVICE_EXCHANGE_AUTO_DELETE=0");
+
+/**
+ * RabbitMQ - Queue
+ * mailchimpSubscriptionQueue
+ */
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE=mailchimpSubscriptionQueue");
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE_PASSIVE=0");
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE_DURABLE=1");
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE_EXCLUSIVE=0");
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE_AUTO_DELETE=0");
+putenv("MB_EMAIL_SERVICE_SUBSCRIBE_QUEUE_TOPIC_MB_EMAIL_SERVICE_EXCHANGE_BINDING_PATTERN=subscribe.mailchimp.*");
+
+/**
+ * RabbitMQ - Queue
+ * mailchimpResubscriptionQueue
+ */
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE=mailchimpResubscriptionQueue");
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_PASSIVE=0");
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_DURABLE=1");
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_EXCLUSIVE=0");
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
+putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_TOPIC_MB_EMAIL_SERVICE_EXCHANGE_BINDING_PATTERN=resubscribe.mailchimp.*");
+
 /**
  * Service IDs
  */

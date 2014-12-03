@@ -258,7 +258,6 @@
                   }
               }
           },
-          
         "directUserMailchimpStatus" :
           {
             "__comment" : "Exchange - Error message reported by Mailchimp after batch submit. The status / subscription of the user will be updated for reference on future messaging.",
@@ -280,6 +279,38 @@
                     "routing_key" : "userMailchimpResubscribe",
                     "binding_key" : "userMailchimpResubscribe"
                   }
+              }
+          },
+        "topicEmailService" :
+          {
+            "__comment" : "Exchange - All transactions related to email. Consumers will process entries based on the email service requirments in use.",
+            "name" : "topicEmailService",
+            "type" : "topic",
+            "passive" : false,
+            "durable" : true,
+            "auto_delete" : false,
+            "queues" :
+              {
+                "mailchimpSubscriptionQueue" :
+                {
+                  "__comment" : "Queue - Add entries to Mailchimp lists with 'interest group' (group) assignments. Contents to be processed in batches",
+                  "name" : "mailchimpSubscriptionQueue",
+                  "passive" : false,
+                  "durable" : true,
+                  "exclusive" : false,
+                  "auto_delete" : false,
+                  "binding_key" : "*.subscribe.mailchimp"
+                },
+                "mailchimpResubscriptionQueue" :
+                {
+                  "__comment" : "Queue - Entries that were rejected in batch submissions that require a resubscription submission as a single item.",
+                  "name" : "mailchimpResubscriptionQueue",
+                  "passive" : false,
+                  "durable" : true,
+                  "exclusive" : false,
+                  "auto_delete" : false,
+                  "binding_key" : "*.resubscribe.mailchimp"
+                }
               }
           },
         "directUserImport" :
