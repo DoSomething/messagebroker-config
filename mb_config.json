@@ -293,13 +293,13 @@
               {
                 "mailchimpSubscriptionQueue" :
                 {
-                  "__comment" : "Queue - Add entries to Mailchimp lists with 'interest group' (group) assignments. Contents to be processed in batches",
+                  "__comment" : "Queue - Add entries to Mailchimp lists with 'interest group' (group) assignments. Contents to be processed in batches.",
                   "name" : "mailchimpSubscriptionQueue",
                   "passive" : false,
                   "durable" : true,
                   "exclusive" : false,
                   "auto_delete" : false,
-                  "binding_key" : "*.subscribe.mailchimp"
+                  "binding_key" : "subscribe.mailchimp.*"
                 },
                 "mailchimpResubscriptionQueue" :
                 {
@@ -309,7 +309,7 @@
                   "durable" : true,
                   "exclusive" : false,
                   "auto_delete" : false,
-                  "binding_key" : "*.resubscribe.mailchimp"
+                  "binding_key" : "resubscribe.mailchimp.*"
                 }
               }
           },
