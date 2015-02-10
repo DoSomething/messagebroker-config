@@ -122,6 +122,11 @@ putenv("MB_MOBILE_COMMONSL_CONSUME_EXCLUSIVE=0");
 putenv("MB_MOBILE_COMMONS_CONSUME_NOWAIT=0");
 
 /**
+ * Additional binding / routing for Mobile Commons queue to gather campaign signups as well
+ */
+putenv("MB_MOBILE_COMMONS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_CAMPAIGN_PATTERN=campaign.signup.*");
+
+/**
  * RabbitMQ - Queue
  * MailChimp Campaign Signups
  */
