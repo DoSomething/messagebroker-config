@@ -397,7 +397,7 @@
           },
         "directExternalApplicationsExchange" :
           {
-            "__comment" : "Exchange - External application messages to trigger functionality within the Message Broker system.",
+            "__comment" : "Exchange - External application messages to trigger functionality within the Message Broker system. **NOTE** needs to be renamed to topicExternalApplicationsExchange.",
             "name" : "directExternalApplicationsExchange",
             "type" : "topic",
             "passive" : false,
