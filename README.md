@@ -1,4 +1,4 @@
-messagebroker-config v0.1.x
+messagebroker-config v0.2.x
 ==============
 
 A common location for all configuration settings in the Message Broker
