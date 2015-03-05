@@ -493,5 +493,5 @@ putenv("NEWRELIC_APP_NAME_RABBIT1=Message Broker - rabbit1");
  */
 // Mailchimp - Do Something Members
 putenv("SUBSCRIPTIONS_IP=98.129.111.168");
-putenv("SUBSCRIPTIONS_URL=subscriptions.dosomething.org");
+putenv("SUBSCRIPTIONS_URL="); // subscriptions.dosomething.org
 putenv("SUBSCRIPTIONS_PORT=3000");
