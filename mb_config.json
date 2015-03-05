@@ -403,5 +403,15 @@
                 }
             }
         }
+    },
+    "settings": {
+        "__comment": "Configuration settings for the Message Broker system.",
+        "subscriptions": {
+            "__comment": "Settings for the user subscription preferences system.",
+            "ip": "98.129.111.168",
+            "port": "3000",
+            "url": "subscriptions.dosomething.org"
+        }
     }
+
 }

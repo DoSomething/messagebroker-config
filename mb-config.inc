@@ -487,3 +487,11 @@ putenv("MB_EMAIL_SERVICE_RESUBSCRIBE_QUEUE_TOPIC_MB_EMAIL_SERVICE_EXCHANGE_BINDI
 // Mailchimp - Do Something Members
 putenv("MAILCHIMP_LIST_ID=f2fab1dfd4");
 putenv("NEWRELIC_APP_NAME_RABBIT1=Message Broker - rabbit1");
+
+/**
+ * User subscription preference management system
+ */
+// Mailchimp - Do Something Members
+putenv("SUBSCRIPTIONS_IP=98.129.111.168");
+putenv("SUBSCRIPTIONS_URL=subscriptions.dosomething.org");
+putenv("SUBSCRIPTIONS_PORT=3000");
