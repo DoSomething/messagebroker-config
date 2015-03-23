@@ -409,7 +409,7 @@
         "subscriptions": {
             "__comment": "Settings for the user subscription preferences system.",
             "ip": "98.129.111.168",
-            "port": "3000",
+            "port": "",
             "url": "subscriptions.dosomething.org"
         }
     }
