@@ -168,6 +168,19 @@ putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATT
 
 /**
  * RabbitMQ - Queue
+ * Image Processing - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.
+ */
+putenv("MB_IMAGE_PROCESSING_ROUTING_KEY=imageProcessing");
+
+putenv("MB_IMAGE_PROCESSING_QUEUE=imageProcessingQueue");
+putenv("MB_IMAGE_PROCESSING_QUEUE_PASSIVE=0");
+putenv("MB_IMAGE_PROCESSING_QUEUE_DURABLE=1");
+putenv("MB_IMAGE_PROCESSING_QUEUE_EXCLUSIVE=0");
+putenv("MB_IMAGE_PROCESSING_QUEUE_AUTO_DELETE=0");
+putenv("MB_IMAGE_PROCESSING_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.report_back.transactional");
+
+/**
+ * RabbitMQ - Queue
  * userMailchimpStatusQueue
  */
 putenv("MB_USER_MAILCHIMP_STATUS_ROUTING_KEY=user.mailchimp.error");
@@ -497,4 +510,4 @@ putenv("SUBSCRIPTIONS_URL=subscriptions.dosomething.org");
 putenv("SUBSCRIPTIONS_PORT=");
 
 // Toggle in dev / production to control StatHat collection
-putenv("USE_STAT_TRACKING=1");
+putenv("USE_STAT_TRACKING=0");
