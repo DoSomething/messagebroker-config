@@ -25,7 +25,8 @@
                             "tag": "transactional",
                             "no_local": false,
                             "no_ack": false,
-                            "nowait": false
+                            "nowait": false,
+                            "exclusive": false,
                         }
                     },
                     "loggingQueue": {
