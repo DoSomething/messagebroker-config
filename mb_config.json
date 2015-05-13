@@ -357,6 +357,7 @@
                         "durable": false,
                         "exclusive": false,
                         "auto_delete": false,
+                        "routing_key": "userImportExistingLogging",
                         "binding_key": "userImportExistingLogging",
                         "consume": {
                             "tag": "userImportExistingLogging",
