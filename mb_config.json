@@ -331,6 +331,7 @@
                         "durable": false,
                         "exclusive": false,
                         "auto_delete": true,
+                        "routing_key": "userImport",
                         "binding_key": "userImport",
                         "consume": {
                             "tag": "userImport",
