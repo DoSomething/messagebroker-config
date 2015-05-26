@@ -260,7 +260,14 @@
                         "exclusive": false,
                         "auto_delete": false,
                         "routing_key": "userDigest",
-                        "binding_key": "userDigest"
+                        "binding_key": "userDigest",
+                        "consume": {
+                            "tag": "userDigest",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
                     }
                 }
             },
