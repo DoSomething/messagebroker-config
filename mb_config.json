@@ -265,7 +265,7 @@
                             "tag": "userDigest",
                             "no_local": false,
                             "no_ack": false,
-                            "exclusive": false,
+                            "exclusive": true,
                             "nowait": false
                         }
                     }
