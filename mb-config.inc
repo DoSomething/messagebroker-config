@@ -510,4 +510,4 @@ putenv("SUBSCRIPTIONS_URL=subscriptions.dosomething.org");
 putenv("SUBSCRIPTIONS_PORT=");
 
 // Toggle in dev / production to control StatHat collection
-putenv("USE_STAT_TRACKING=1");
+putenv("USE_STAT_TRACKING=0");

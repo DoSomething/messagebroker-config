@@ -258,7 +258,7 @@
                         "passive": false,
                         "durable": true,
                         "exclusive": false,
-                        "auto_delete": false,
+                        "auto_delete": true,
                         "routing_key": "userDigest",
                         "binding_key": "userDigest",
                         "consume": {
@@ -369,6 +369,33 @@
                         "binding_key": "userImportExistingLogging",
                         "consume": {
                             "tag": "userImportExistingLogging",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
+                    }
+                }
+            },
+            "directLoggingGateway": {
+                "__comment": "Exchange - Gateway to all things logging and the mb-logging_api.",
+                "name": "directLoggingGateway",
+                "type": "direct",
+                "passive": false,
+                "durable": true,
+                "auto_delete": false,
+                "queues": {
+                    "externalAppplicationUserEventLoggingQueue": {
+                        "__comment": "Queue - User events from external applications",
+                        "name": "externalAppplicationUserEventLoggingQueue",
+                        "passive": false,
+                        "durable": false,
+                        "exclusive": false,
+                        "auto_delete": false,
+                        "routing_key": "externalAppplicationUserEventLogging",
+                        "binding_key": "externalAppplicationUserEventLogging",
+                        "consume": {
+                            "tag": "externalAppplicationUserEventLogging",
                             "no_local": false,
                             "no_ack": false,
                             "exclusive": false,
