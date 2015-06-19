@@ -385,17 +385,17 @@
                 "durable": true,
                 "auto_delete": false,
                 "queues": {
-                    "externalAppplicationUserEventLoggingQueue": {
+                    "loggingGatewayQueue": {
                         "__comment": "Queue - User events from external applications",
-                        "name": "externalAppplicationUserEventLoggingQueue",
+                        "name": "loggingGatewayQueue",
                         "passive": false,
                         "durable": false,
                         "exclusive": false,
                         "auto_delete": false,
-                        "routing_key": "externalAppplicationUserEventLogging",
-                        "binding_key": "externalAppplicationUserEventLogging",
+                        "routing_key": "loggingGateway",
+                        "binding_key": "loggingGateway",
                         "consume": {
-                            "tag": "externalAppplicationUserEventLogging",
+                            "tag": "loggingGateway",
                             "no_local": false,
                             "no_ack": false,
                             "exclusive": false,
@@ -438,7 +438,9 @@
                         "durable": true,
                         "exclusive": false,
                         "auto_delete": false,
-                        "binding_key": "*.event.*"
+                        "binding_patterns": [
+                            "*.event.*"
+                        ]
                     },
                     "externalApplicationUserQueue": {
                         "__comment": "Queue - External Applications - User transactional. Examples user registration.",
@@ -447,7 +449,9 @@
                         "durable": true,
                         "exclusive": false,
                         "auto_delete": false,
-                        "binding_key": "*.user.*"
+                        "binding_patterns": [
+                            "*.user.*"
+                        ]
                     }
                 }
             }
