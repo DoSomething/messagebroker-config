@@ -268,6 +268,23 @@
                             "exclusive": true,
                             "nowait": false
                         }
+                    },
+                    "userDigestProducerQueue": {
+                        "__comment": "Queue - Calls to mb-user-api to /users for user documents to generate digest messages.",
+                        "name": "userDigestProducerQueue",
+                        "passive": false,
+                        "durable": true,
+                        "exclusive": false,
+                        "auto_delete": true,
+                        "routing_key": "userDigestProducer",
+                        "binding_key": "userDigestProducer",
+                        "consume": {
+                            "tag": "userDigestProducer",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
                     }
                 }
             },
