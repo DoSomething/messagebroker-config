@@ -244,45 +244,82 @@
                     }
                 }
             },
-            "directUserDigestExchange": {
-                "__comment": "Exchange - Summary email messages for allof a users campaign activity.",
-                "name": "directUserDigestExchange",
+            "directUserDigest": {
+                "__comment": "Exchange - Manage the generation of digest messages.",
+                "name": "directUserDigest",
                 "type": "direct",
                 "passive": false,
                 "durable": true,
                 "auto_delete": false,
                 "queues": {
-                    "userDigestQueue": {
-                        "__comment": "Queue - Users that have campaign activity that could get sent a digest message.",
-                        "name": "userDigestQueue",
+                    "digestProducerQueue": {
+                        "__comment": "Queue - Produce messages for requesting user data from mb-user-api.",
+                        "name": "digestProducerQueue",
+                        "passive": false,
+                        "durable": false,
+                        "exclusive": false,
+                        "auto_delete": true,
+                        "routing_key": "digestProducer",
+                        "binding_key": "digestProducer"
+                    }
+                }
+            },
+            "fanoutUserDigest": {
+                "__comment": "Exchange - DIstribute user messages ",
+                "name": "fanoutUserDigest",
+                "type": "fanout",
+                "passive": false,
+                "durable": true,
+                "auto_delete": false,
+                "queues": {
+                    "digestUserQueue": {
+                        "__comment": "Queue - Users with campaign activity for processing to generate digrdt messages for.",
+                        "name": "digestUserQueue",
                         "passive": false,
                         "durable": true,
                         "exclusive": false,
                         "auto_delete": true,
-                        "routing_key": "userDigest",
-                        "binding_key": "userDigest",
+                        "routing_key": "digestUser",
+                        "binding_key": "digestUser",
                         "consume": {
-                            "tag": "userDigest",
+                            "tag": "digestUser",
                             "no_local": false,
                             "no_ack": false,
                             "exclusive": true,
                             "nowait": false
                         }
                     },
-                    "userDigestProducerQueue": {
-                        "__comment": "Queue - Calls to mb-user-api to /users for user documents to generate digest messages.",
-                        "name": "userDigestProducerQueue",
+                    "digestUnsubscribeQueue": {
+                        "__comment": "Queue - Based on message email values generate unique unsubsubscription links for user digest messages.",
+                        "name": "digestUnsubscribeQueue",
                         "passive": false,
                         "durable": true,
                         "exclusive": false,
                         "auto_delete": true,
-                        "routing_key": "userDigestProducer",
-                        "binding_key": "userDigestProducer",
+                        "routing_key": "digestUnsubscribe",
+                        "binding_key": "digestUnsubscribe",
                         "consume": {
-                            "tag": "userDigestProducer",
+                            "tag": "digestUnsubscribe",
                             "no_local": false,
                             "no_ack": false,
-                            "exclusive": false,
+                            "exclusive": true,
+                            "nowait": false
+                        }
+                    },
+                    "digestCampaignsQueue": {
+                        "__comment": "Queue - Based on user campaign activity in message generate campaign markup as content items for digest message.",
+                        "name": "digestCampaignsQueue",
+                        "passive": false,
+                        "durable": true,
+                        "exclusive": false,
+                        "auto_delete": true,
+                        "routing_key": "digestCampaigns",
+                        "binding_key": "digestCampaigns",
+                        "consume": {
+                            "tag": "digestCampaigns",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": true,
                             "nowait": false
                         }
                     }
