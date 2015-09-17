@@ -519,12 +519,21 @@
         }
     },
     "settings": {
-        "__comment": "Configuration settings for the Message Broker system.",
+      "__comment": "Configuration settings for the Message Broker system.",
+        "general": {
+          "default": {
+            "first_name": "Doer"
+          },
+          "email": {
+            "from": "no-reply@dosomething.org",
+            "name": "DoSomething.org"
+          }
+        },
         "subscriptions": {
-            "__comment": "Settings for the user subscription preferences system.",
-            "ip": "98.129.111.168",
-            "port": "",
-            "url": "subscriptions.dosomething.org"
+          "__comment": "Settings for the user subscription preferences system.",
+          "ip": "98.129.111.168",
+          "port": "",
+          "url": "subscriptions.dosomething.org"
         }
     }
 
