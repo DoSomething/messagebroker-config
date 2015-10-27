@@ -77,7 +77,14 @@
                         "routing_key": "serRegistration",
                         "binding_patterns": [
                             "user.registration.*"
-                        ]
+                        ],
+                        "consume": {
+                            "tag": "userRegistration",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
                     },
                     "mobileCommonsQueue": {
                         "__comment": "Queue - All transactions with mobile information is submitted to Mobile Commons.",
