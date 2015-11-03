@@ -1,197 +1,211 @@
 {
-    "rabbit": {
-        "__comment": "General RabbitMQ configuration. Define the exchanges and related queues. Note that it possible for more than one change to send messages to a queue through the 'exclusive' setting. The hierarchy in the structure of this file is an effort to make the process easier rather a set of strict rules.",
-        "exchanges": {
-            "transactionalExchange": {
-                "__comment": "Exchange - All transactional email events from the Drupal application go to this exchange.",
-                "name": "transactionalExchange",
-                "type": "topic",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "transactionalQueue": {
-                        "__comment": "Queue - Email events, queue items are used to generate single transaction request to Mandrill.",
-                        "name": "transactionalQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "transactional",
-                        "binding_patterns": [
-                            "*.*.transactional"
-                        ],
-                        "consume": {
-                            "tag": "transactional",
-                            "no_local": false,
-                            "no_ack": false,
-                            "nowait": false,
-                            "exclusive": false
-                        }
-                    },
-                    "loggingQueue": {
-                        "__comment": "Queue - Mongo based logging of all transactions.",
-                        "name": "loggingQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "logging",
-                        "binding_patterns": [
-                            "*.*.transactional"
-                        ],
-                        "consume": {
-                            "tag": "logging",
-                            "no_local": false,
-                            "no_ack": true,
-                            "exclusive": false,
-                            "nowait": true
-                        }
-                    },
-                    "activityStatsQueue": {
-                        "__comment": "Queue - transactional activity to be consumed by the lobby dashboard app.",
-                        "name": "activityStatsQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "activityStats",
-                        "binding_patterns": [
-                            "*.*.transactional"
-                        ],
-                        "consume": {
-                            "tag": "activityStats",
-                            "no_local": false,
-                            "no_ack": true,
-                            "exclusive": false,
-                            "nowait": true
-                        }
-                    },
-                    "userRegistrationQueue": {
-                        "__comments": "Queue - Submit user registration details to Mailchimp.",
-                        "name": "userRegistrationQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "serRegistration",
-                        "binding_patterns": [
-                            "user.registration.*"
-                        ],
-                        "consume": {
-                            "tag": "userRegistration",
-                            "no_local": false,
-                            "no_ack": false,
-                            "exclusive": false,
-                            "nowait": false
-                        }
-                    },
-                    "mobileCommonsQueue": {
-                        "__comment": "Queue - All transactions with mobile information is submitted to Mobile Commons.",
-                        "name": "mobileCommonsQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "mobileCommonsRegistration",
-                        "binding_patterns": [
-                            "user.registration.*",
-                            "campaign.signup.*"
-                        ],
-                        "consume": {
-                            "tag": "mobile",
-                            "no_local": false,
-                            "no_ack": false,
-                            "exclusive": false,
-                            "nowait": false
-                        }
-                    },
-                    "mailchimpCampaignSignupQueue": {
-                        "__comment": "Queue - All member campaign activity is added to the user account on Mailchimp.",
-                        "name": "mailchimpCampaignSignupQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "mailchimpCampaignSignup",
-                        "binding_patterns": [
-                            "campaign.signup.*"
-                        ]
-                    },
-                    "userAPIRegistrationQueue": {
-                        "__comment": "Queue - New user registrations information is added to the mb-user database.",
-                        "name": "userAPIRegistrationQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userAPIRegistration",
-                        "binding_patterns": [
-                            "user.registration.#"
-                        ]
-                    },
-                    "userAPICampaignActivityQueue": {
-                        "__comment": "Queue - All user campaign activity (signups and report backs) is added to the mb-user database.",
-                        "name": "userAPICampaignActivityQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userAPICampaignActivity",
-                        "binding_patterns": [
-                            "campaign.*.*"
-                        ]
-                    },
-                    "imageProcessingQueue": {
-                        "__comment": "Queue - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.",
-                        "name": "imageProcessingQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "imageProcessing",
-                        "binding_patterns": [
-                            "campaign.report_back.transactional"
-                        ]
-                    },
-                    "userAPIProfileQueue": {
-                        "__comment": "Queue - Add/update/delete user profile settings in the userAPI.",
-                        "name": "userAPIProfileQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userAPIProfile",
-                        "binding_patterns": [
-                            "user.profile.*"
-                        ]
-                    },
-                    "userMailchimpStatusQueue": {
-                        "__comment": "Queue - When email accounts are added or updated on Mailchimp a status is returned including any errors or issues that will prevent sending further messages to the email address. This queue logs these issues and updates the mb-user database.",
-                        "name": "userMailchimpStatusQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userMailchimpStatus",
-                        "binding_patterns": [
-                            "*.mailchimp.error"
-                        ]
-                    },
-                    "userProfileMailchimpQueue": {
-                        "__comment": "Queue - Update user Mailchimp subscription settings.",
-                        "name": "userProfileMailchimpQueue",
-                        "passive": false,
-                        "durable": true,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userProfileMailchimp",
-                        "binding_patterns": [
-                            "user.profile.*"
-                        ]
-                    }
-                }
-            },
+  "rabbit": {
+    "__comment": "General RabbitMQ configuration. Define the exchanges and related queues. Note that it possible for more than one change to send messages to a queue through the 'exclusive' setting. The hierarchy in the structure of this file is an effort to make the process easier rather a set of strict rules.",
+    "exchanges": {
+      "transactionalExchange": {
+        "__comment": "Exchange - All transactional email events from the Drupal application go to this exchange.",
+        "name": "transactionalExchange",
+        "type": "topic",
+        "passive": false,
+        "durable": true,
+        "auto_delete": false,
+        "queues": {
+          "transactionalQueue": {
+            "__comment": "Queue - Email events, queue items are used to generate single transaction request to Mandrill.",
+            "name": "transactionalQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "transactional",
+            "binding_patterns": [
+              "*.*.transactional"
+            ],
+            "consume": {
+              "tag": "transactional",
+              "no_local": false,
+              "no_ack": false,
+              "nowait": false,
+              "exclusive": false
+            }
+          },
+          "loggingQueue": {
+            "__comment": "Queue - Mongo based logging of all transactions.",
+            "name": "loggingQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "logging",
+            "binding_patterns": [
+              "*.*.transactional"
+            ],
+            "consume": {
+              "tag": "logging",
+              "no_local": false,
+              "no_ack": true,
+              "exclusive": false,
+              "nowait": true
+            }
+          },
+          "activityStatsQueue": {
+            "__comment": "Queue - transactional activity to be consumed by the lobby dashboard app.",
+            "name": "activityStatsQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "activityStats",
+            "binding_patterns": [
+              "*.*.transactional"
+            ],
+            "consume": {
+              "tag": "activityStats",
+              "no_local": false,
+              "no_ack": true,
+              "exclusive": false,
+              "nowait": true
+            }
+          },
+          "userRegistrationQueue": {
+            "__comments": "Queue - Submit user registration details to Mailchimp.",
+            "name": "userRegistrationQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "serRegistration",
+            "binding_patterns": [
+              "user.registration.*"
+            ],
+            "consume": {
+              "tag": "userRegistration",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
+          "mobileCommonsQueue": {
+            "__comment": "Queue - All transactions with mobile information is submitted to Mobile Commons.",
+            "name": "mobileCommonsQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "mobileCommonsRegistration",
+            "binding_patterns": [
+              "user.registration.*",
+              "campaign.signup.*"
+            ],
+            "consume": {
+              "tag": "mobile",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
+          "mailchimpCampaignSignupQueue": {
+            "__comment": "Queue - All member campaign activity is added to the user account on Mailchimp.",
+            "name": "mailchimpCampaignSignupQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "mailchimpCampaignSignup",
+            "binding_patterns": [
+              "campaign.signup.*"
+            ]
+          },
+          "userAPIRegistrationQueue": {
+            "__comment": "Queue - New user registrations information is added to the mb-user database.",
+            "name": "userAPIRegistrationQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userAPIRegistration",
+            "binding_patterns": [
+              "user.registration.#"
+            ],
+            "consume": {
+              "tag": "userAPIRegistration",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
+          "userAPICampaignActivityQueue": {
+            "__comment": "Queue - All user campaign activity (signups and report backs) is added to the mb-user database.",
+            "name": "userAPICampaignActivityQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userAPICampaignActivity",
+            "binding_patterns": [
+              "campaign.*.*"
+            ],
+            "consume": {
+              "tag": "userAPICampaignActivity",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
+          "imageProcessingQueue": {
+            "__comment": "Queue - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.",
+            "name": "imageProcessingQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "imageProcessing",
+            "binding_patterns": [
+              "campaign.report_back.transactional"
+            ]
+          },
+          "userAPIProfileQueue": {
+            "__comment": "Queue - Add/update/delete user profile settings in the userAPI.",
+            "name": "userAPIProfileQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userAPIProfile",
+            "binding_patterns": [
+              "user.profile.*"
+            ]
+          },
+          "userMailchimpStatusQueue": {
+            "__comment": "Queue - When email accounts are added or updated on Mailchimp a status is returned including any errors or issues that will prevent sending further messages to the email address. This queue logs these issues and updates the mb-user database.",
+            "name": "userMailchimpStatusQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userMailchimpStatus",
+            "binding_patterns": [
+              "*.mailchimp.error"
+            ]
+          },
+          "userProfileMailchimpQueue": {
+            "__comment": "Queue - Update user Mailchimp subscription settings.",
+            "name": "userProfileMailchimpQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userProfileMailchimp",
+            "binding_patterns": [
+              "user.profile.*"
+            ]
+          }
+        }
+      },
             "directMailchimpWebhooks": {
                 "__comment": "Exchange - Entries made by webhook activity sent by Mailchimp. Used to track user unsubscribes via Mailchimp unsubscribe links in Mailchimp generated mass mailouts.",
                 "name": "directMailchimpWebhooks",
