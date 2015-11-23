@@ -74,7 +74,7 @@
             "durable": true,
             "exclusive": false,
             "auto_delete": false,
-            "routing_key": "serRegistration",
+            "routing_key": "userRegistration",
             "binding_patterns": [
               "user.registration.*"
             ],
@@ -522,7 +522,14 @@
                         "auto_delete": false,
                         "binding_patterns": [
                             "*.event.*"
-                        ]
+                        ],
+                        "consume": {
+                            "tag": "externalApplicationEvent",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
                     },
                     "externalApplicationUserQueue": {
                         "__comment": "Queue - External Applications - User transactional. Examples user registration.",
@@ -533,29 +540,47 @@
                         "auto_delete": false,
                         "binding_patterns": [
                             "*.user.*"
-                        ]
+                        ],
+                        "consume": {
+                            "tag": "externalApplicationUser",
+                            "no_local": false,
+                            "no_ack": false,
+                            "exclusive": false,
+                            "nowait": false
+                        }
                     }
                 }
             }
         }
     },
-    "settings": {
-      "__comment": "Configuration settings for the Message Broker system.",
-        "general": {
+  "settings": {
+    "__comment": "Configuration settings for the Message Broker system.",
+    "general": {
+      "default": {
+        "first_name": "Doer"
+      },
+      "email": {
+        "from": "no-reply@dosomething.org",
+        "name": "DoSomething.org"
+      }
+    },
+    "subscriptions": {
+      "__comment": "Settings for the user subscription preferences system.",
+      "ip": "98.129.111.168",
+      "port": "",
+      "url": "subscriptions.dosomething.org"
+    },
+    "mobile": {
+      "__comment": "Settings for SMS providers.",
+      "mobile_commons": "",
+      "mGage": {
+        "api_host": "https://communicatepro.mgage.com/api",
+        "optin": {
           "default": {
-            "first_name": "Doer"
-          },
-          "email": {
-            "from": "no-reply@dosomething.org",
-            "name": "DoSomething.org"
+            "id": "464110"
           }
-        },
-        "subscriptions": {
-          "__comment": "Settings for the user subscription preferences system.",
-          "ip": "98.129.111.168",
-          "port": "",
-          "url": "subscriptions.dosomething.org"
         }
+      }
     }
-
+  }
 }
