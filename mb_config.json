@@ -576,9 +576,9 @@
       "mGage": {
         "api_host": "https://communicatepro.mgage.com/api",
         "optin": {
-          "default": {
-            "id": "464110"
-          }
+          "default": "464110",
+          "BR": "555",
+          "MX": "555"
         }
       }
     }
