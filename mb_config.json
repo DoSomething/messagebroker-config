@@ -116,7 +116,14 @@
             "routing_key": "mailchimpCampaignSignup",
             "binding_patterns": [
               "campaign.signup.*"
-            ]
+            ],
+            "consume": {
+              "tag": "mailchimpCampaignSignup",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
           },
           "userAPIRegistrationQueue": {
             "__comment": "Queue - New user registrations information is added to the mb-user database.",
