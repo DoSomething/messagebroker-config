@@ -197,7 +197,14 @@
             "routing_key": "userMailchimpStatus",
             "binding_patterns": [
               "*.mailchimp.error"
-            ]
+            ],
+            "consume": {
+              "tag": "userMailchimpStatus",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
           },
           "userProfileMailchimpQueue": {
             "__comment": "Queue - Update user Mailchimp subscription settings.",
