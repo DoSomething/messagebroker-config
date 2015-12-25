@@ -43,9 +43,9 @@
             "consume": {
               "tag": "logging",
               "no_local": false,
-              "no_ack": true,
+              "no_ack": false,
               "exclusive": false,
-              "nowait": true
+              "nowait": false
             }
           },
           "activityStatsQueue": {
