@@ -564,6 +564,24 @@
                         }
                     }
                 }
+            },
+            "directDeadLetterExchange": {
+                "__comment": "Exchange - Log messages that encounter errors or some reason they can't be processed in their current state.",
+                "type": "direct",
+                "passive": false,
+                "durable": true,
+                "auto_delete": false,
+                "queues": {
+                    "deadLetterQueue": {
+                        "__comment": "Queue - Dead letters, where message go to die.",
+                        "name": "deadLetterQueue",
+                        "passive": false,
+                        "durable": false,
+                        "exclusive": false,
+                        "auto_delete": true,
+                        "binding_key": "deadLetter"
+                    }
+                }
             }
         }
     },
