@@ -515,6 +515,7 @@
                         "durable": false,
                         "exclusive": false,
                         "auto_delete": true,
+                        "routing_key": "heartBeat",
                         "binding_key": "heartbeat"
                     }
                 }
@@ -580,6 +581,7 @@
                         "durable": false,
                         "exclusive": false,
                         "auto_delete": true,
+                        "routing_key": "deadLetter",
                         "binding_key": "deadLetter"
                     }
                 }
