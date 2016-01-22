@@ -567,6 +567,7 @@
             },
             "directDeadLetterExchange": {
                 "__comment": "Exchange - Log messages that encounter errors or some reason they can't be processed in their current state.",
+                "name": "directDeadLetterExchange",
                 "type": "direct",
                 "passive": false,
                 "durable": true,
