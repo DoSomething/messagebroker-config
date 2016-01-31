@@ -438,7 +438,7 @@
                         "binding_key": "userImport",
                         "consume": {
                             "tag": "userImport",
-                            "no_local": false,
+                            "no_local": true,
                             "no_ack": false,
                             "exclusive": false,
                             "nowait": false
