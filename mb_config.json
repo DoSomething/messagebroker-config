@@ -29,6 +29,25 @@
               "exclusive": false
             }
           },
+          "transactionalDigestQueue": {
+            "__comment": "Queue - transactional events, queue to gather transactions to generate a single digest message thats then sent to the transactionalQueue.",
+            "name": "transactionalDigestQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": true,
+            "auto_delete": false,
+            "routing_key": "transactionalDigest",
+            "binding_patterns": [
+              "campaign.signup.transactional"
+            ],
+            "consume": {
+              "tag": "transactionalDigest",
+              "no_local": false,
+              "no_ack": false,
+              "nowait": false,
+              "exclusive": true
+            }
+          },
           "loggingQueue": {
             "__comment": "Queue - Mongo based logging of all transactions.",
             "name": "loggingQueue",
@@ -535,6 +554,7 @@
                         "durable": true,
                         "exclusive": false,
                         "auto_delete": false,
+                        "routing_key": "externalApplicationEvent",
                         "binding_patterns": [
                             "*.event.*"
                         ],
