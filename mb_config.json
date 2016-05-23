@@ -34,7 +34,7 @@
             "name": "transactionalDigestQueue",
             "passive": false,
             "durable": true,
-            "exclusive": true,
+            "exclusive": false,
             "auto_delete": false,
             "routing_key": "transactionalDigest",
             "binding_patterns": [
@@ -45,7 +45,7 @@
               "no_local": false,
               "no_ack": false,
               "nowait": false,
-              "exclusive": true
+              "exclusive": false
             }
           },
           "loggingQueue": {
