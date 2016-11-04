@@ -144,6 +144,26 @@
               "nowait": false
             }
           },
+          "messagingGroupsQueue": {
+            "__comment": "Queue - Manage messaging groups on Mobile Commons.",
+            "name": "messagingGroupsQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "messagingGroups",
+            "binding_patterns": [
+              "campaign.report_back.transactional",
+              "campaign.signup.*"
+            ],
+            "consume": {
+              "tag": "messagingGroups",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
           "userAPIRegistrationQueue": {
             "__comment": "Queue - New user registrations information is added to the mb-user database.",
             "name": "userAPIRegistrationQueue",
