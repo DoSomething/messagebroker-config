@@ -154,7 +154,8 @@
             "routing_key": "messagingGroups",
             "binding_patterns": [
               "campaign.report_back.transactional",
-              "campaign.signup.*"
+              "campaign.signup.*",
+              "messaging_groups_direct"
             ],
             "consume": {
               "tag": "messagingGroups",
