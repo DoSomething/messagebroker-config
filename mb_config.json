@@ -636,8 +636,8 @@
         "first_name": "Doer"
       },
       "email": {
-        "from": "no-reply@dosomething.org",
-        "name": "DoSomething.org"
+        "from": "noreply@dosomething.org",
+        "name": "Ben at DoSomething.org"
       }
     },
     "subscriptions": {
