@@ -165,6 +165,26 @@
               "nowait": false
             }
           },
+          "dispatchDelayedTextsQueue": {
+            "__comment": "Queue - dispatch delayed texts.",
+            "name": "dispatchDelayedTextsQueue",
+            "passive": false,
+            "durable": true,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "dispatchDelayedTextsQueue",
+            "binding_patterns": [
+              "campaign.report_back.transactional",
+              "campaign.signup.*"
+            ],
+            "consume": {
+              "tag": "dispatchDelayedTextsQueue",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          },
           "userAPIRegistrationQueue": {
             "__comment": "Queue - New user registrations information is added to the mb-user database.",
             "name": "userAPIRegistrationQueue",
