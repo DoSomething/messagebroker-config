@@ -67,25 +67,6 @@
               "nowait": false
             }
           },
-          "activityStatsQueue": {
-            "__comment": "Queue - transactional activity to be consumed by the lobby dashboard app.",
-            "name": "activityStatsQueue",
-            "passive": false,
-            "durable": true,
-            "exclusive": false,
-            "auto_delete": false,
-            "routing_key": "activityStats",
-            "binding_patterns": [
-              "*.*.transactional"
-            ],
-            "consume": {
-              "tag": "activityStats",
-              "no_local": false,
-              "no_ack": true,
-              "exclusive": false,
-              "nowait": true
-            }
-          },
           "userRegistrationQueue": {
             "__comments": "Queue - Submit user registration details to Mailchimp.",
             "name": "userRegistrationQueue",
