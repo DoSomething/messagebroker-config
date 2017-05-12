@@ -223,18 +223,6 @@
               "nowait": false
             }
           },
-          "imageProcessingQueue": {
-            "__comment": "Queue - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.",
-            "name": "imageProcessingQueue",
-            "passive": false,
-            "durable": true,
-            "exclusive": false,
-            "auto_delete": false,
-            "routing_key": "imageProcessing",
-            "binding_patterns": [
-              "campaign.report_back.transactional"
-            ]
-          },
           "userAPIProfileQueue": {
             "__comment": "Queue - Add/update/delete user profile settings in the userAPI.",
             "name": "userAPIProfileQueue",
