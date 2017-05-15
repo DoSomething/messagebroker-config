@@ -67,25 +67,6 @@
               "nowait": false
             }
           },
-          "userRegistrationQueue": {
-            "__comments": "Queue - Submit user registration details to Mailchimp.",
-            "name": "userRegistrationQueue",
-            "passive": false,
-            "durable": true,
-            "exclusive": false,
-            "auto_delete": false,
-            "routing_key": "userRegistration",
-            "binding_patterns": [
-              "user.registration.*"
-            ],
-            "consume": {
-              "tag": "userRegistration",
-              "no_local": false,
-              "no_ack": false,
-              "exclusive": false,
-              "nowait": false
-            }
-          },
           "mobileCommonsQueue": {
             "__comment": "Queue - All transactions with mobile information is submitted to Mobile Commons.",
             "name": "mobileCommonsQueue",
@@ -100,25 +81,6 @@
             ],
             "consume": {
               "tag": "mobile",
-              "no_local": false,
-              "no_ack": false,
-              "exclusive": false,
-              "nowait": false
-            }
-          },
-          "mailchimpCampaignSignupQueue": {
-            "__comment": "Queue - All member campaign activity is added to the user account on Mailchimp.",
-            "name": "mailchimpCampaignSignupQueue",
-            "passive": false,
-            "durable": true,
-            "exclusive": false,
-            "auto_delete": false,
-            "routing_key": "mailchimpCampaignSignup",
-            "binding_patterns": [
-              "campaign.signup.*"
-            ],
-            "consume": {
-              "tag": "mailchimpCampaignSignup",
               "no_local": false,
               "no_ack": false,
               "exclusive": false,
