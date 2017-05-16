@@ -264,7 +264,6 @@ putenv("MB_SCRIPT_EXCHANGE_AUTO_DELETE=0");
  * Service IDs
  */
 // Mailchimp - Do Something Members
-putenv("MAILCHIMP_LIST_ID=f2fab1dfd4");
 putenv("NEWRELIC_APP_NAME_RABBIT1=Message Broker - rabbit1");
 
 // Toggle in dev / production to control StatHat collection
