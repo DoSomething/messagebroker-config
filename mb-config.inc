@@ -49,25 +49,6 @@ putenv("MB_TRANSACTIONAL_CONSUME_NO_ACK=0");
 putenv("MB_TRANSACTIONAL_CONSUME_EXCLUSIVE=0");
 putenv("MB_TRANSACTIONAL_CONSUME_NOWAIT=0");
 
-/**
- * RabbitMQ - Queue
- * activityStats
- */
-
-putenv("MB_ACTIVITY_STATS_EXCHANGE_ROUTING_KEY=activityStats");
-
-putenv("MB_ACTIVITY_STATS_QUEUE=activityStatsQueue");
-putenv("MB_ACTIVITY_STATS_QUEUE_PASSIVE=0");
-putenv("MB_ACTIVITY_STATS_QUEUE_DURABLE=1");
-putenv("MB_ACTIVITY_STATS_QUEUE_EXCLUSIVE=0");
-putenv("MB_ACTIVITY_STATS_QUEUE_AUTO_DELETE=0");
-putenv("MB_ACTIVITY_STATS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=*.*.transactional");
-
-putenv("MB_ACTIVITY_STATS_CONSUME_TAG=activityStats");
-putenv("MB_ACTIVITY_STATS_CONSUME_NO_LOCAL=0");
-putenv("MB_ACTIVITY_STATS_CONSUME_NO_ACK=1");
-putenv("MB_ACTIVITY_STATS_CONSUME_EXCLUSIVE=0");
-putenv("MB_ACTIVITY_STATS_CONSUME_NOWAIT=1");
 
 /**
  * RabbitMQ - Queue
@@ -88,19 +69,6 @@ putenv("MB_ACTIVITY_LOGGING_CONSUME_NO_LOCAL=0");
 putenv("MB_ACTIVITY_LOGGING_CONSUME_NO_ACK=1");
 putenv("MB_ACTIVITY_LOGGING_CONSUME_EXCLUSIVE=0");
 putenv("MB_ACTIVITY_LOGGING_CONSUME_NOWAIT=1");
-
-/**
- * RabbitMQ - Queue
- * Registrations
- */
-putenv("MB_USER_REGISTRATION_EXCHANGE_ROUTING_KEY=emailRegistration");
-
-putenv("MB_USER_REGISTRATION_QUEUE=userRegistrationQueue");
-putenv("MB_USER_REGISTRATION_QUEUE_PASSIVE=0");
-putenv("MB_USER_REGISTRATION_QUEUE_DURABLE=1");
-putenv("MB_USER_REGISTRATION_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_REGISTRATION_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
 
 /**
  * RabbitMQ - Queue
@@ -125,46 +93,6 @@ putenv("MB_MOBILE_COMMONS_CONSUME_NOWAIT=0");
  * Additional binding / routing for Mobile Commons queue to gather campaign signups as well
  */
 putenv("MB_MOBILE_COMMONS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_CAMPAIGN_PATTERN=campaign.signup.*");
-
-/**
- * RabbitMQ - Queue
- * MailChimp Campaign Signups
- */
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_ROUTING_KEY=mailchimpCampaignSignup");
-
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE=mailchimpCampaignSignupQueue");
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_PASSIVE=0");
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_DURABLE=1");
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_EXCLUSIVE=0");
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_AUTO_DELETE=0");
-putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.signup.*");
-
-/**
- * RabbitMQ - Queue
- * Image Processing - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.
- */
-putenv("MB_IMAGE_PROCESSING_ROUTING_KEY=imageProcessing");
-
-putenv("MB_IMAGE_PROCESSING_QUEUE=imageProcessingQueue");
-putenv("MB_IMAGE_PROCESSING_QUEUE_PASSIVE=0");
-putenv("MB_IMAGE_PROCESSING_QUEUE_DURABLE=1");
-putenv("MB_IMAGE_PROCESSING_QUEUE_EXCLUSIVE=0");
-putenv("MB_IMAGE_PROCESSING_QUEUE_AUTO_DELETE=0");
-putenv("MB_IMAGE_PROCESSING_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.report_back.transactional");
-
-
-/**
- * RabbitMQ - Queue
- * userDigestQueue
- */
-putenv("MB_USER_DIGEST_ROUTING_KEY=userDigest");
-
-putenv("MB_USER_DIGEST_QUEUE=userDigestQueue");
-putenv("MB_USER_DIGEST_QUEUE_PASSIVE=0");
-putenv("MB_USER_DIGEST_QUEUE_DURABLE=1");
-putenv("MB_USER_DIGEST_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_DIGEST_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_DIGEST_QUEUE_BINDING_KEY=userDigest");
 
 /**
  * RabbitMQ - Exchange
