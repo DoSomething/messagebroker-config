@@ -153,16 +153,6 @@ putenv("MB_IMAGE_PROCESSING_QUEUE_AUTO_DELETE=0");
 putenv("MB_IMAGE_PROCESSING_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.report_back.transactional");
 
 /**
- * RabbitMQ - Exchange
- * MailChimp Unsubscribes
- */
-putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE=directMailchimpWebhooks");
-putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_TYPE=direct");
-putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_PASSIVE=0");
-putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_DURABLE=1");
-putenv("MB_MAILCHIMP_UNSUBSCRIBE_EXCHANGE_AUTO_DELETE=0");
-
-/**
  * RabbitMQ - Queue
  * mailchimpUnsubscribeQueue
  */
