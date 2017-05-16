@@ -130,82 +130,82 @@
           }
         }
       },
-            "directUserImport": {
-                "__comment": "Exchange - Summary email messages for allof a users campaign activity.",
-                "name": "directUserImport",
-                "type": "direct",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "userImportQueue": {
-                        "__comment": "Queue - User information imported from sources outside of DoSomething.org.",
-                        "name": "userImportQueue",
-                        "passive": false,
-                        "durable": false,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userImport",
-                        "binding_key": "userImport",
-                        "consume": {
-                            "tag": "userImport",
-                            "no_local": false,
-                            "no_ack": false,
-                            "exclusive": false,
-                            "nowait": false
-                        }
-                    }
-                }
-            },
-            "directLoggingGateway": {
-                "__comment": "Exchange - Gateway to all things logging and the mb-logging_api.",
-                "name": "directLoggingGateway",
-                "type": "direct",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "loggingGatewayQueue": {
-                        "__comment": "Queue - User events from external applications",
-                        "name": "loggingGatewayQueue",
-                        "passive": false,
-                        "durable": false,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "loggingGateway",
-                        "binding_key": "loggingGateway",
-                        "consume": {
-                            "tag": "loggingGateway",
-                            "no_local": false,
-                            "no_ack": false,
-                            "exclusive": false,
-                            "nowait": false
-                        }
-                    }
-                }
-            },
-            "directDeadLetterExchange": {
-                "__comment": "Exchange - Log messages that encounter errors or some reason they can't be processed in their current state.",
-                "name": "directDeadLetterExchange",
-                "type": "direct",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "deadLetterQueue": {
-                        "__comment": "Queue - Dead letters, where message go to die.",
-                        "name": "deadLetterQueue",
-                        "passive": false,
-                        "durable": false,
-                        "exclusive": false,
-                        "auto_delete": true,
-                        "routing_key": "deadLetter",
-                        "binding_key": "deadLetter"
-                    }
-                }
+      "directUserImport": {
+        "__comment": "Exchange - Summary email messages for allof a users campaign activity.",
+        "name": "directUserImport",
+        "type": "direct",
+        "passive": false,
+        "durable": true,
+        "auto_delete": false,
+        "queues": {
+          "userImportQueue": {
+            "__comment": "Queue - User information imported from sources outside of DoSomething.org.",
+            "name": "userImportQueue",
+            "passive": false,
+            "durable": false,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "userImport",
+            "binding_key": "userImport",
+            "consume": {
+              "tag": "userImport",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
             }
+          }
         }
-    },
+      },
+      "directLoggingGateway": {
+        "__comment": "Exchange - Gateway to all things logging and the mb-logging_api.",
+        "name": "directLoggingGateway",
+        "type": "direct",
+        "passive": false,
+        "durable": true,
+        "auto_delete": false,
+        "queues": {
+          "loggingGatewayQueue": {
+            "__comment": "Queue - User events from external applications",
+            "name": "loggingGatewayQueue",
+            "passive": false,
+            "durable": false,
+            "exclusive": false,
+            "auto_delete": false,
+            "routing_key": "loggingGateway",
+            "binding_key": "loggingGateway",
+            "consume": {
+              "tag": "loggingGateway",
+              "no_local": false,
+              "no_ack": false,
+              "exclusive": false,
+              "nowait": false
+            }
+          }
+        }
+      },
+      "directDeadLetterExchange": {
+        "__comment": "Exchange - Log messages that encounter errors or some reason they can't be processed in their current state.",
+        "name": "directDeadLetterExchange",
+        "type": "direct",
+        "passive": false,
+        "durable": true,
+        "auto_delete": false,
+        "queues": {
+          "deadLetterQueue": {
+            "__comment": "Queue - Dead letters, where message go to die.",
+            "name": "deadLetterQueue",
+            "passive": false,
+            "durable": false,
+            "exclusive": false,
+            "auto_delete": true,
+            "routing_key": "deadLetter",
+            "binding_key": "deadLetter"
+          }
+        }
+      }
+    }
+  },
   "settings": {
     "__comment": "Configuration settings for the Message Broker system.",
     "general": {
