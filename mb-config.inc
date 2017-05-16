@@ -124,37 +124,6 @@ putenv("MB_USER_IMPORT_CONSUME_EXCLUSIVE=0");
 putenv("MB_USER_IMPORT_CONSUME_NOWAIT=0");
 
 /**
- * RabbitMQ - Exchange
- * User Import Logging Existing accounts (email and mobile)
- */
-putenv("MB_USER_IMPORT_LOGGING_EXCHANGE=directUserImportExistingLogging");
-putenv("MB_USER_IMPORT_LOGGING_EXCHANGE_TYPE=direct");
-putenv("MB_USER_IMPORT_LOGGING_EXCHANGE_PASSIVE=0");
-putenv("MB_USER_IMPORT_LOGGING_EXCHANGE_DURABLE=1");
-putenv("MB_USER_IMPORT_LOGGING_EXCHANGE_AUTO_DELETE=0");
-
-/**
- * RabbitMQ - Queue
- * userImportExistingLoggingQueue
- */
-putenv("MB_USER_IMPORT_LOGGING_ROUTING_KEY=userImportExistingLogging");
-
-putenv("MB_USER_IMPORT_LOGGING_QUEUE=userImportExistingLoggingQueue");
-putenv("MB_USER_IMPORT_LOGGING_QUEUE_PASSIVE=0");
-putenv("MB_USER_IMPORT_LOGGING_QUEUE_DURABLE=0");
-putenv("MB_USER_IMPORT_LOGGING_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_IMPORT_LOGGING_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_IMPORT_LOGGING_QUEUE_BINDING_KEY=userImportExistingLogging");
-
-putenv("MB_USER_IMPORT_LOGGING_CONSUME_TAG=userImportExistingLogging");
-putenv("MB_USER_IMPORT_LOGGING_CONSUME_NO_LOCAL=0");
-putenv("MB_USER_IMPORT_LOGGING_CONSUME_NO_ACK=0");
-putenv("MB_USER_IMPORT_LOGGING_CONSUME_EXCLUSIVE=0");
-putenv("MB_USER_IMPORT_LOGGING_CONSUME_NOWAIT=0");
-
-putenv("MB_IMPORT_REPORT_ROUTING_KEY=import.report.transactional");
-
-/**
  * RabbitMQ - Exchange - Heartbeat
  * Automated test entries for monitoring the health of the system.
  */

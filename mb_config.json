@@ -157,33 +157,6 @@
                     }
                 }
             },
-            "directUserImportExistingLogging": {
-                "__comment": "Exchange - Log all user import results checkoing with each service (Mailchimp, Mobile Commons and Drupal) for existing sites.",
-                "name": "directUserImportExistingLogging",
-                "type": "direct",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "userImportExistingLoggingQueue": {
-                        "__comment": "Queue - User information imported from sources outside of DoSomething.org.",
-                        "name": "userImportExistingLoggingQueue",
-                        "passive": false,
-                        "durable": false,
-                        "exclusive": false,
-                        "auto_delete": false,
-                        "routing_key": "userImportExistingLogging",
-                        "binding_key": "userImportExistingLogging",
-                        "consume": {
-                            "tag": "userImportExistingLogging",
-                            "no_local": false,
-                            "no_ack": false,
-                            "exclusive": false,
-                            "nowait": false
-                        }
-                    }
-                }
-            },
             "directLoggingGateway": {
                 "__comment": "Exchange - Gateway to all things logging and the mb-logging_api.",
                 "name": "directLoggingGateway",
