@@ -152,15 +152,6 @@ putenv("MB_IMAGE_PROCESSING_QUEUE_EXCLUSIVE=0");
 putenv("MB_IMAGE_PROCESSING_QUEUE_AUTO_DELETE=0");
 putenv("MB_IMAGE_PROCESSING_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.report_back.transactional");
 
-/**
- * RabbitMQ - Exchange
- * MailChimp Error messages reported after batch submit
- */
-putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE=directUserMailchimpStatus");
-putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_TYPE=direct");
-putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_PASSIVE=0");
-putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_DURABLE=1");
-putenv("MB_USER_MAILCHIMP_STATUS_EXCHANGE_AUTO_DELETE=0");
 
 /**
  * RabbitMQ - Queue
