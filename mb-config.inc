@@ -127,7 +127,6 @@ putenv("MB_USER_IMPORT_CONSUME_NOWAIT=0");
 /**
  * Service IDs
  */
-// Mailchimp - Do Something Members
 putenv("NEWRELIC_APP_NAME_RABBIT1=Message Broker - rabbit1");
 
 // Toggle in dev / production to control StatHat collection
