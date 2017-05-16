@@ -141,19 +141,6 @@ putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTE
 
 /**
  * RabbitMQ - Queue
- * User Campaign Activity - signups and reportbacks to be consumed for updates to the UserAPI
- */
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_ROUTING_KEY=userAPICampaignActivity");
-
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE=userAPICampaignActivityQueue");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_PASSIVE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_DURABLE=1");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_API_CAMPAIGN_ACTIVITY_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.*.*");
-
-/**
- * RabbitMQ - Queue
  * Image Processing - Process images to generate cache files for defined image styles. An example is Drupal report back images which have image styles of various sizes.
  */
 putenv("MB_IMAGE_PROCESSING_ROUTING_KEY=imageProcessing");
