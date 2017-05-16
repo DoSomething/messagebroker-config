@@ -217,22 +217,9 @@
         "name": "DoSomething.org"
       }
     },
-    "subscriptions": {
-      "__comment": "Settings for the user subscription preferences system.",
-      "ip": "98.129.111.168",
-      "port": "",
-      "url": "subscriptions.dosomething.org"
-    },
     "mobile": {
       "__comment": "Settings for SMS providers.",
-      "mobile_commons": "",
-      "mGage": {
-        "api_host": "https://communicatepro.mgage.com/api",
-        "optin": {
-          "default": "464110",
-          "BR": "555",
-          "MX": "555"
-        }
+      "mobile_commons": ""
       }
     }
   }
