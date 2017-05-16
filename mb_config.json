@@ -220,7 +220,6 @@
     "mobile": {
       "__comment": "Settings for SMS providers.",
       "mobile_commons": ""
-      }
     }
   }
 }
