@@ -261,21 +261,6 @@ putenv("MB_SCRIPT_EXCHANGE_DURABLE=1");
 putenv("MB_SCRIPT_EXCHANGE_AUTO_DELETE=0");
 
 /**
- * RabbitMQ - Queue - External Applications - Transactional event. Example, user
- * vote cast.
- *
- * externalApplicationEventQueue
- */
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_ROUTING_KEY=user.mailchimp.resubscribe");
-
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE=mailchimpResubscribeQueue");
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_PASSIVE=0");
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_DURABLE=1");
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_EXCLUSIVE=0");
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
-putenv("MB_MAILCHIMP_RESUBSCRIBE_QUEUE_BINDING_KEY=*.mailchimp.resubscribe");
-
-/**
  * Service IDs
  */
 // Mailchimp - Do Something Members
