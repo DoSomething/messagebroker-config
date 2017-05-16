@@ -175,16 +175,6 @@ putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_EXCLUSIVE=0");
 putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
 
 /**
- * RabbitMQ - Exchange
- * User events
- */
-putenv("MB_USER_EVENT_EXCHANGE=directUserEvent");
-putenv("MB_USER_EVENT_EXCHANGE_TYPE=direct");
-putenv("MB_USER_EVENT_EXCHANGE_PASSIVE=0");
-putenv("MB_USER_EVENT_EXCHANGE_DURABLE=1");
-putenv("MB_USER_EVENT_EXCHANGE_AUTO_DELETE=0");
-
-/**
  * RabbitMQ - Queue
  * userEventBirthdayQueue
  */
