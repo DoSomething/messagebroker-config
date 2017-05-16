@@ -176,19 +176,6 @@ putenv("MB_USER_MAILCHIMP_RESUBSCRIBE_QUEUE_AUTO_DELETE=0");
 
 /*
  * RabbitMQ - Queue
- * userEvent13BirthdayQueue
- */
-putenv("MB_USER_EVENT_13BIRTHDAY_ROUTING_KEY=userEvent13Birthday");
-
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE=userEvent13BirthdayQueue");
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_PASSIVE=0");
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_DURABLE=0");
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_AUTO_DELETE=1");
-putenv("MB_USER_EVENT_13BIRTHDAY_QUEUE_BINDING_KEY=userEvent13Birthday");
-
-/*
- * RabbitMQ - Queue
  * userEventAnniversaryQueue
  */
 putenv("MB_USER_EVENT_ANNIVERSARY_ROUTING_KEY=userEventAnniversary");
