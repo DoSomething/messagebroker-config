@@ -254,46 +254,6 @@ putenv("MB_HEARTBEAT_QUEUE_BINDING_KEY=heartbeat");
  * External application messages to trigger functionality within the Message
  * Broker system.
  */
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE=directExternalApplicationsExchange");
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_TYPE=topic");
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_PASSIVE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_DURABLE=1");
-putenv("MB_EXTERNAL_APPLICATIONS_EXCHANGE_AUTO_DELETE=0");
-
-/**
- * RabbitMQ - Queue - External Applications - Transactional event. Example, user
- * vote cast.
- *
- * externalApplicationEventQueue
- */
-putenv("MB_EXTERNAL_APPLICATIONS_CGG_VOTE_ROUTING_KEY=cgg.event.vote");
-
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE=externalApplicationEventQueue");
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_PASSIVE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_DURABLE=1");
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_EXCLUSIVE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_AUTO_DELETE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_VOTE_QUEUE_BINDING_KEY=*.event.*");
-
-/**
- * RabbitMQ - Queue - External Applications - User transactional. Examples user
- * registration.
- * externalApplicationRegistrationQueue
- */
-putenv("MB_EXTERNAL_APPLICATIONS_CGG_REGISTRATION_ROUTING_KEY=cgg.user.registration");
-
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE=externalApplicationUserQueue");
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE_PASSIVE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE_DURABLE=1");
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE_EXCLUSIVE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE_AUTO_DELETE=0");
-putenv("MB_EXTERNAL_APPLICATIONS_USER_QUEUE_BINDING_KEY=*.user.*");
-
-/**
- * RabbitMQ - Exchange - directExternalApplicationsExchange
- * External application messages to trigger functionality within the Message
- * Broker system.
- */
 putenv("MB_SCRIPT_EXCHANGE=topicScriptExchange");
 putenv("MB_SCRIPT_EXCHANGE_TYPE=topic");
 putenv("MB_SCRIPT_EXCHANGE_PASSIVE=0");
