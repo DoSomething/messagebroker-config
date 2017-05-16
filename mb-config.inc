@@ -249,16 +249,6 @@ putenv("MB_HEARTBEAT_QUEUE_EXCLUSIVE=0");
 putenv("MB_HEARTBEAT_QUEUE_AUTO_DELETE=1");
 putenv("MB_HEARTBEAT_QUEUE_BINDING_KEY=heartbeat");
 
-/**
- * RabbitMQ - Exchange - directExternalApplicationsExchange
- * External application messages to trigger functionality within the Message
- * Broker system.
- */
-putenv("MB_SCRIPT_EXCHANGE=topicScriptExchange");
-putenv("MB_SCRIPT_EXCHANGE_TYPE=topic");
-putenv("MB_SCRIPT_EXCHANGE_PASSIVE=0");
-putenv("MB_SCRIPT_EXCHANGE_DURABLE=1");
-putenv("MB_SCRIPT_EXCHANGE_AUTO_DELETE=0");
 
 /**
  * Service IDs
