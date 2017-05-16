@@ -153,19 +153,6 @@ putenv("MB_IMAGE_PROCESSING_QUEUE_AUTO_DELETE=0");
 putenv("MB_IMAGE_PROCESSING_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=campaign.report_back.transactional");
 
 /**
- * RabbitMQ - Queue
- * userMailchimpStatusQueue
- */
-putenv("MB_USER_MAILCHIMP_STATUS_ROUTING_KEY=user.mailchimp.error");
-
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE=userMailchimpStatusQueue");
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_PASSIVE=0");
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_DURABLE=1");
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_MAILCHIMP_STATUS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=*.mailchimp.error");
-
-/**
  * RabbitMQ - Exchange
  * MailChimp Unsubscribes
  */
