@@ -141,20 +141,6 @@ putenv("MB_MAILCHIMP_CAMPAIGN_SIGNUP_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTE
 
 /**
  * RabbitMQ - Queue
- * User Account Activity - user account creation details to be consumed for
- * record creation in the UserAPI.
- */
-putenv("MB_USER_API_REGISTRATION_ROUTING_KEY=userAPIRegistration");
-
-putenv("MB_USER_API_REGISTRATION_QUEUE=userAPIRegistrationQueue");
-putenv("MB_USER_API_REGISTRATION_QUEUE_PASSIVE=0");
-putenv("MB_USER_API_REGISTRATION_QUEUE_DURABLE=1");
-putenv("MB_USER_API_REGISTRATION_QUEUE_EXCLUSIVE=0");
-putenv("MB_USER_API_REGISTRATION_QUEUE_AUTO_DELETE=0");
-putenv("MB_USER_API_REGISTRATION_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.#");
-
-/**
- * RabbitMQ - Queue
  * User Campaign Activity - signups and reportbacks to be consumed for updates to the UserAPI
  */
 putenv("MB_USER_API_CAMPAIGN_ACTIVITY_ROUTING_KEY=userAPICampaignActivity");
