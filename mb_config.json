@@ -184,26 +184,6 @@
                     }
                 }
             },
-            "directHeartbeatExchange": {
-                "__comment": "Exchange - Summary email messages for allof a users campaign activity.",
-                "name": "directHeartbeatExchange",
-                "type": "direct",
-                "passive": false,
-                "durable": true,
-                "auto_delete": false,
-                "queues": {
-                    "heartbeatQueue": {
-                        "__comment": "Queue - Heartbeat activities to monitor as it flows through the system.",
-                        "name": "heartbeatQueue",
-                        "passive": false,
-                        "durable": false,
-                        "exclusive": false,
-                        "auto_delete": true,
-                        "routing_key": "heartBeat",
-                        "binding_key": "heartbeat"
-                    }
-                }
-            },
             "directDeadLetterExchange": {
                 "__comment": "Exchange - Log messages that encounter errors or some reason they can't be processed in their current state.",
                 "name": "directDeadLetterExchange",
