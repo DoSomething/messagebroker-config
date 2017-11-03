@@ -67,26 +67,6 @@
               "nowait": false
             }
           },
-          "mobileCommonsQueue": {
-            "__comment": "Queue - All transactions with mobile information is submitted to Mobile Commons.",
-            "name": "mobileCommonsQueue",
-            "passive": false,
-            "durable": true,
-            "exclusive": false,
-            "auto_delete": false,
-            "routing_key": "mobileCommonsRegistration",
-            "binding_patterns": [
-              "user.registration.*",
-              "campaign.signup.*"
-            ],
-            "consume": {
-              "tag": "mobile",
-              "no_local": false,
-              "no_ack": false,
-              "exclusive": false,
-              "nowait": false
-            }
-          },
           "messagingGroupsQueue": {
             "__comment": "Queue - Manage messaging groups on Mobile Commons.",
             "name": "messagingGroupsQueue",
