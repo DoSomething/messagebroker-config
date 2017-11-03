@@ -71,30 +71,6 @@ putenv("MB_ACTIVITY_LOGGING_CONSUME_EXCLUSIVE=0");
 putenv("MB_ACTIVITY_LOGGING_CONSUME_NOWAIT=1");
 
 /**
- * RabbitMQ - Queue
- * Mobile Commons
- */
-putenv("MB_MOBILE_COMMONS_EXCHANGE_ROUTING_KEY=mobileCommonsRegistration");
-
-putenv("MB_MOBILE_COMMONS_QUEUE=mobileCommonsQueue");
-putenv("MB_MOBILE_COMMONS_QUEUE_PASSIVE=0");
-putenv("MB_MOBILE_COMMONS_QUEUE_DURABLE=1");
-putenv("MB_MOBILE_COMMONS_QUEUE_EXCLUSIVE=0");
-putenv("MB_MOBILE_COMMONS_QUEUE_AUTO_DELETE=0");
-putenv("MB_MOBILE_COMMONS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_PATTERN=user.registration.*");
-
-putenv("MB_MOBILE_COMMONS_CONSUME_TAG=mobile");
-putenv("MB_MOBILE_COMMONS_CONSUME_NO_LOCAL=0");
-putenv("MB_MOBILE_COMMONS_CONSUME_NO_ACK=0");
-putenv("MB_MOBILE_COMMONSL_CONSUME_EXCLUSIVE=0");
-putenv("MB_MOBILE_COMMONS_CONSUME_NOWAIT=0");
-
-/**
- * Additional binding / routing for Mobile Commons queue to gather campaign signups as well
- */
-putenv("MB_MOBILE_COMMONS_QUEUE_TOPIC_MB_TRANSACTIONAL_EXCHANGE_CAMPAIGN_PATTERN=campaign.signup.*");
-
-/**
  * RabbitMQ - Exchange
  * User Import from CSV
  */
